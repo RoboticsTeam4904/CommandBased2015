@@ -13,6 +13,8 @@ import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -21,22 +23,28 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
  * creating this project, you must also update the manifest file in the resource
  * directory.
  */
-public class RobotTemplate extends IterativeRobot {
-	Command autonomousCommand;
+public class Robot extends IterativeRobot {
+	private Command autonomousCommand;
+	private SendableChooser autoChooser;
 	
 	/**
 	 * This function is run when the robot is first started up and should be
 	 * used for any initialization code.
 	 */
 	public void robotInit() {
-		// instantiate the command used for the autonomous period
-		autonomousCommand = new AutonomousIdle();
 		// Initialize all subsystems
 		CommandBase.init();
+		// Initialize and configure autonomous command chooser
+		autoChooser = new SendableChooser();
+		autoChooser.addDefault("Idle", new AutonomousIdle());
+		// Display autonomous chooser on SmartDashboard
+		SmartDashboard.putData("Autonomous mode chooser", autoChooser);
 	}
 	
 	public void autonomousInit() {
-		// schedule the autonomous command (example)
+		// Get chosen autonomous command
+		autonomousCommand = (Command) autoChooser.getSelected();
+		// Schedule the autonomous command
 		autonomousCommand.start();
 	}
 	
