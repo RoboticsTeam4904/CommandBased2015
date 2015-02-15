@@ -61,6 +61,7 @@ public class Robot extends IterativeRobot {
 		// continue until interrupted by another command, remove
 		// this line or comment it out.
 		autonomousCommand.cancel();
+		Scheduler.getInstance().add(new XboxDrive());
 	}
 	
 	/**
