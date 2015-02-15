@@ -1,6 +1,7 @@
 package org.usfirst.frc4904.cmdbased;
 
 
+import org.usfirst.frc4904.cmdbased.custom.IMU;
 import org.usfirst.frc4904.cmdbased.custom.SuperEncoder;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Talon;
@@ -36,6 +37,8 @@ public class RobotMap {
 	public static final SuperEncoder BACK_LEFT_WHEEL_ENCODER = new SuperEncoder(12);
 	public static final SuperEncoder BACK_RIGHT_WHEEL_ENCODER = new SuperEncoder(13);
 	public static final SuperEncoder WINCH_ENCODER = new SuperEncoder(14); // TODO set to correct port
+	// IMU
+	public static final IMU IMU_SENSOR = new IMU();
 	// *** CONSTANTS *** //
 	// Size constants
 	public static final double TOTE_GRAB_HEIGHT = 1; // TODO add actual value
