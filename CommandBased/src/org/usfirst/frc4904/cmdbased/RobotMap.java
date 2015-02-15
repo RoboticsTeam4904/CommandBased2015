@@ -44,6 +44,8 @@ public class RobotMap {
 	public static final double TOTE_GRAB_HEIGHT = 1; // TODO add actual value
 	public static final double CAN_GRAB_HEIGHT = 1; // TODO add actual value
 	// OI constants
+	public static final double X_SPEED_SCALE = -0.66; // negative because axis is flipped
+	public static final double Y_SPEED_SCALE = 0.66;
 	public static final double TURN_SPEED_SCALE = 0.5;
 	public static final double XBOX_MINIMUM_THRESHOLD = 0.1;
 	// Xbox button mapping constants
