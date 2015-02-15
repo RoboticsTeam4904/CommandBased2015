@@ -1,9 +1,10 @@
 package org.usfirst.frc4904.cmdbased;
 
 
-import org.usfirst.frc4904.cmdbased.commands.WinchChangeHeight;
 import org.usfirst.frc4904.cmdbased.commands.GrabCan;
 import org.usfirst.frc4904.cmdbased.commands.GrabTote;
+import org.usfirst.frc4904.cmdbased.commands.Kill;
+import org.usfirst.frc4904.cmdbased.commands.WinchChangeHeight;
 import org.usfirst.frc4904.cmdbased.commands.WinchSetHeight;
 import org.usfirst.frc4904.cmdbased.custom.XboxController;
 import edu.wpi.first.wpilibj.Joystick;
@@ -17,6 +18,7 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 public class OI {
 	// Driver
 	public final XboxController xbox;
+	public final Button buttonBack;
 	// Operator
 	public final Joystick stick;
 	public final Button button1;
@@ -27,8 +29,9 @@ public class OI {
 	public final Button button6;
 	
 	public OI() {
-		// Initialize driver Xbox controller
+		// Initialize driver Xbox controller and buttons
 		xbox = new XboxController(RobotMap.XBOX_CONTROLLER_PORT);
+		buttonBack = new JoystickButton(xbox, RobotMap.XBOX_BACK_BUTTON);
 		// Initialize operator joystick and buttons
 		stick = new Joystick(RobotMap.JOYSTICK_PORT);
 		button1 = new JoystickButton(stick, 1);
@@ -37,6 +40,8 @@ public class OI {
 		button4 = new JoystickButton(stick, 4);
 		button5 = new JoystickButton(stick, 5);
 		button6 = new JoystickButton(stick, 6);
+		// Bind driver buttons to commands
+		buttonBack.whenPressed(new Kill());
 		// Bind operator buttons to commands
 		button1.toggleWhenPressed(new GrabTote());
 		button2.toggleWhenPressed(new GrabCan());
