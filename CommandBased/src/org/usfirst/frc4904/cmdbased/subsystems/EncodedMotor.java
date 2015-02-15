@@ -14,6 +14,7 @@ public class EncodedMotor extends PIDSubsystem {
 		this.motor = motor;
 		this.encoder = encoder;
 		getPIDController().setOutputRange(-1, 1);
+		getPIDController().setContinuous(false);
 	}
 
 	protected void initDefaultCommand() {}
