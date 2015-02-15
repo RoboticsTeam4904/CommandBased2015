@@ -18,4 +18,10 @@ public class MecanumHelper {
 		backRight /= scaleFactor;
 		return new double[] {frontLeft, frontRight, backLeft, backRight};
 	}
+
+	public static double[] cartesianToPolar(double x, double y) {
+		double speed = Math.sqrt(x * x + y * y);
+		double angle = Math.atan2(y, x);
+		return new double[] {speed, angle};
+	}
 }
