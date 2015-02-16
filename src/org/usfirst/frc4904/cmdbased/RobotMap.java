@@ -3,6 +3,7 @@ package org.usfirst.frc4904.cmdbased;
 
 import org.usfirst.frc4904.cmdbased.custom.IMU;
 import org.usfirst.frc4904.cmdbased.custom.SuperEncoder;
+import com.ni.vision.NIVision;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.VictorSP;
@@ -73,4 +74,13 @@ public class RobotMap {
 	public static final double GRABBER_OPEN_SPEED = 0.5;
 	public static final double GRABBER_CLOSE_SPEED = 0.5;
 	public static final double GRABBER_HOLD_SPEED = 0.5;
+	// Camera constants
+	public static final NIVision.Range CAMERA_TOTE_HUE_RANGE = new NIVision.Range(101, 64); // Default hue range for yellow tote
+	public static final NIVision.Range CAMERA_TOTE_SAT_RANGE = new NIVision.Range(88, 255); // Default saturation range for yellow tote
+	public static final NIVision.Range CAMERA_TOTE_VAL_RANGE = new NIVision.Range(134, 255); // Default value range for yellow tote
+	public static final double CAMERA_AREA_MINIMUM = 0.5;
+	public static final double CAMERA_LONG_RATIO = 2.22; // Tote long side = 26.9 / Tote height = 12.1 = 2.22
+	public static final double CAMERA_SHORT_RATIO = 1.4; // Tote short side = 16.9 / Tote height = 12.1 = 1.4
+	public static final double CAMERA_SCORE_MIN = 75.0; // Minimum score to be considered a tote
+	public static final String CAMERA_NAME = "cam1";
 }

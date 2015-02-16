@@ -3,6 +3,8 @@ package org.usfirst.frc4904.cmdbased.commands;
 
 import org.usfirst.frc4904.cmdbased.OI;
 import org.usfirst.frc4904.cmdbased.RobotMap;
+import org.usfirst.frc4904.cmdbased.custom.LIDAR;
+import org.usfirst.frc4904.cmdbased.subsystems.Camera;
 import org.usfirst.frc4904.cmdbased.subsystems.EncodedMotor;
 import org.usfirst.frc4904.cmdbased.subsystems.Grabber;
 import org.usfirst.frc4904.cmdbased.subsystems.LimitSwitchSystem;
@@ -31,6 +33,10 @@ public abstract class CommandBase extends Command {
 	// Initialize grabber and its limit switches
 	public static final LimitSwitchSystem limitSwitches = new LimitSwitchSystem(RobotMap.RIGHT_INNER_SWITCH, RobotMap.LEFT_INNER_SWITCH, RobotMap.RIGHT_OUTER_SWITCH, RobotMap.LEFT_OUTER_SWITCH);
 	public static final Grabber grabber = new Grabber(RobotMap.GRABBER_MOTOR, limitSwitches);
+	// Initialize LIDAR
+	public static final LIDAR lidar = new LIDAR();
+	// Initialize camera
+	public static final Camera camera = new Camera();
 	
 	public static void init() {
 		// This MUST be here. If the OI creates Commands (which it very likely
