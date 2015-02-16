@@ -26,6 +26,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class Robot extends IterativeRobot {
 	private Command autonomousCommand;
 	private SendableChooser autoChooser;
+	private SendableChooser operatorChooser;
 	
 	/**
 	 * This function is run when the robot is first started up and should be
@@ -37,6 +38,9 @@ public class Robot extends IterativeRobot {
 		// Initialize and configure autonomous command chooser
 		autoChooser = new SendableChooser();
 		autoChooser.addDefault("Idle", new AutonomousIdle());
+		operatorChooser = new SendableChooser();
+		operatorChooser.addDefault("Nachi", new OINachi());
+		operatorChooser.addObject("Griffin", new OIGriffin());
 		// Display autonomous chooser on SmartDashboard
 		SmartDashboard.putData("Autonomous mode chooser", autoChooser);
 	}

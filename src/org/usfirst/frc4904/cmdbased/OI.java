@@ -1,11 +1,7 @@
 package org.usfirst.frc4904.cmdbased;
 
 
-import org.usfirst.frc4904.cmdbased.commands.GrabCan;
-import org.usfirst.frc4904.cmdbased.commands.GrabTote;
 import org.usfirst.frc4904.cmdbased.commands.Kill;
-import org.usfirst.frc4904.cmdbased.commands.WinchChangeHeight;
-import org.usfirst.frc4904.cmdbased.commands.WinchSetHeight;
 import org.usfirst.frc4904.cmdbased.custom.XboxController;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
@@ -27,6 +23,12 @@ public class OI {
 	public final Button button4;
 	public final Button button5;
 	public final Button button6;
+	public final Button button7;
+	public final Button button8;
+	public final Button button9;
+	public final Button button10;
+	public final Button button11;
+	public final Button button12;
 	
 	public OI() {
 		// Initialize driver Xbox controller and buttons
@@ -40,14 +42,14 @@ public class OI {
 		button4 = new JoystickButton(stick, 4);
 		button5 = new JoystickButton(stick, 5);
 		button6 = new JoystickButton(stick, 6);
+		button7 = new JoystickButton(stick, 7);
+		button8 = new JoystickButton(stick, 8);
+		button9 = new JoystickButton(stick, 9);
+		button10 = new JoystickButton(stick, 10);
+		button11 = new JoystickButton(stick, 11);
+		button12 = new JoystickButton(stick, 12);
 		// Bind driver buttons to commands
 		buttonBack.whenPressed(new Kill());
-		// Bind operator buttons to commands
-		button1.toggleWhenPressed(new GrabTote());
-		button2.toggleWhenPressed(new GrabCan());
-		button3.whenPressed(new WinchChangeHeight(-2)); // Lower winch two half-totes
-		button4.whenPressed(new WinchChangeHeight(2)); // Raise winch two half-totes
-		button5.whenPressed(new WinchSetHeight(1)); // Lower winch all the way (1 half-totes)
-		button6.whenPressed(new WinchSetHeight(12)); // Raise winch all the way (12 half-totes)
+		// Operators should extend this class
 	}
 }
