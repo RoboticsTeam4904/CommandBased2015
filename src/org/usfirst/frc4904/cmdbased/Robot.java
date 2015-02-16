@@ -9,6 +9,7 @@ package org.usfirst.frc4904.cmdbased;
 
 import org.usfirst.frc4904.cmdbased.commands.AutonomousIdle;
 import org.usfirst.frc4904.cmdbased.commands.CommandBase;
+import org.usfirst.frc4904.cmdbased.commands.XboxDrive;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -73,6 +74,7 @@ public class Robot extends IterativeRobot {
 	 * This function is called periodically during operator control
 	 */
 	public void teleopPeriodic() {
+		Scheduler.getInstance().add(new XboxDrive());
 		Scheduler.getInstance().run();
 	}
 	

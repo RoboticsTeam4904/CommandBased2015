@@ -1,8 +1,7 @@
-package org.usfirst.frc4904.cmdbased;
+package org.usfirst.frc4904.cmdbased.commands;
 
 
-import org.usfirst.frc4904.cmdbased.commands.ChassisDrive;
-import org.usfirst.frc4904.cmdbased.commands.CommandBase;
+import org.usfirst.frc4904.cmdbased.RobotMap;
 import org.usfirst.frc4904.cmdbased.custom.MecanumHelper;
 import edu.wpi.first.wpilibj.command.Scheduler;
 
