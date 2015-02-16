@@ -43,6 +43,7 @@ public class Robot extends IterativeRobot {
 		operatorChooser.addObject("Griffin", new OIGriffin());
 		// Display autonomous chooser on SmartDashboard
 		SmartDashboard.putData("Autonomous mode chooser", autoChooser);
+		SmartDashboard.putData("Operator control scheme chooser", operatorChooser);
 	}
 	
 	public void autonomousInit() {
