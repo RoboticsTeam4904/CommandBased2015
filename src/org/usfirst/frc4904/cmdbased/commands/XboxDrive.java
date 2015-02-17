@@ -14,12 +14,12 @@ public class XboxDrive extends CommandBase {
 	
 	public void execute() {
 		// Calculations
-		double xMovement = oi.xbox.getValue(RobotMap.XBOX_Y_STICK) * RobotMap.X_SPEED_SCALE;
-		double yMovement = oi.xbox.getValue(RobotMap.XBOX_X_STICK) * RobotMap.Y_SPEED_SCALE;
+		double xMovement = oi.xbox.leftStick.getX() * RobotMap.X_SPEED_SCALE;
+		double yMovement = oi.xbox.leftStick.getY() * RobotMap.Y_SPEED_SCALE;
 		double[] data = MecanumHelper.cartesianToPolar(xMovement, yMovement);
 		double speed = data[0];
 		double angle = data[1];
-		double turnSpeed = oi.xbox.getValue(RobotMap.XBOX_TWIST_STICK) * RobotMap.TURN_SPEED_SCALE;
+		double turnSpeed = oi.xbox.rightStick.getX() * RobotMap.TURN_SPEED_SCALE;
 		// Commands
 		Scheduler.getInstance().add(new ChassisDrive(speed, angle, turnSpeed));
 	}

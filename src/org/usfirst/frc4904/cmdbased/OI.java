@@ -14,7 +14,6 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 public class OI {
 	// Driver
 	public final XboxController xbox;
-	public final Button buttonBack;
 	// Operator
 	public final Joystick stick;
 	public final Button button1;
@@ -33,7 +32,10 @@ public class OI {
 	public OI() {
 		// Initialize driver Xbox controller and buttons
 		xbox = new XboxController(RobotMap.XBOX_CONTROLLER_PORT);
-		buttonBack = new JoystickButton(xbox, RobotMap.XBOX_BACK_BUTTON);
+		xbox.rightStick.setXDeadZone(RobotMap.XBOX_MINIMUM_THRESHOLD);
+		xbox.leftStick.setYDeadZone(RobotMap.XBOX_MINIMUM_THRESHOLD);
+		xbox.rightStick.setXDeadZone(RobotMap.XBOX_MINIMUM_THRESHOLD);
+		xbox.leftStick.setYDeadZone(RobotMap.XBOX_MINIMUM_THRESHOLD);
 		// Initialize operator joystick and buttons
 		stick = new Joystick(RobotMap.JOYSTICK_PORT);
 		button1 = new JoystickButton(stick, 1);
@@ -49,7 +51,7 @@ public class OI {
 		button11 = new JoystickButton(stick, 11);
 		button12 = new JoystickButton(stick, 12);
 		// Bind driver buttons to commands
-		buttonBack.whenPressed(new Kill());
+		xbox.back.whenPressed(new Kill());
 		// Operators should extend this class
 	}
 }

@@ -49,21 +49,6 @@ public class RobotMap {
 	public static final double Y_SPEED_SCALE = 0.66;
 	public static final double TURN_SPEED_SCALE = 0.5;
 	public static final double XBOX_MINIMUM_THRESHOLD = 0.1;
-	// Xbox button mapping constants
-	public final static int XBOX_A_BUTTON = 1;
-	public final static int XBOX_B_BUTTON = 2;
-	public final static int XBOX_X_BUTTON = 3;
-	public final static int XBOX_Y_BUTTON = 4;
-	public final static int XBOX_LEFT_BUMPER = 5;
-	public final static int XBOX_RIGHT_BUMPER = 6;
-	public final static int XBOX_BACK_BUTTON = 7;
-	public final static int XBOX_START_BUTTON = 8;
-	public final static int XBOX_LEFT_STICK = 9;
-	public final static int XBOX_RIGHT_STICK = 10;
-	public final static int XBOX_X_STICK = 0; // Left x
-	public final static int XBOX_Y_STICK = 1; // Left y
-	public final static int XBOX_TWIST_STICK = 2; // Button pair on front. Left is twist, trying to determine right
-	public static final int XBOX_TWIST_RAW_AXIS = 4; // Stick mappings here: http://www.chiefdelphi.com/forums/showpost.php?p=1003245&postcount=8
 	// Winch constants
 	public static final double WINCH_MAX_HEIGHT = 12; // each level is half a tote height
 	public static final double WINCH_ERROR_MARGIN = 0.5; // in half-totes
