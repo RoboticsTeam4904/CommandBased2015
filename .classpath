@@ -4,5 +4,6 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="lib" path="lib/NetworkTables.jar"/>
 	<classpathentry kind="lib" path="lib/WPILib.jar"/>
+	<classpathentry kind="lib" path="lib/LogKitten.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
