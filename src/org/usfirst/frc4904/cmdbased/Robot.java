@@ -8,13 +8,12 @@ package org.usfirst.frc4904.cmdbased;
 
 
 import org.usfirst.frc4904.cmdbased.commands.AutonomousIdle;
-import org.usfirst.frc4904.cmdbased.commands.CommandBase;
 import org.usfirst.frc4904.cmdbased.commands.XboxDrive;
+import org.usfirst.frc4904.cmdbased.custom.CommandSendableChooser;
+import org.usfirst.frc4904.cmdbased.custom.TypedNamedSendableChooser;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
-import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
@@ -26,22 +25,21 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class Robot extends IterativeRobot {
 	private Command autonomousCommand;
-	private SendableChooser autoChooser;
-	private SendableChooser operatorChooser;
+	private CommandSendableChooser autoChooser;
+	private TypedNamedSendableChooser<OI> operatorChooser;
 	
 	/**
 	 * This function is run when the robot is first started up and should be
 	 * used for any initialization code.
 	 */
 	public void robotInit() {
-		// Initialize all subsystems
-		CommandBase.init();
 		// Initialize and configure autonomous command chooser
-		autoChooser = new SendableChooser();
-		autoChooser.addDefault("Idle", new AutonomousIdle());
-		operatorChooser = new SendableChooser();
-		operatorChooser.addDefault("Nachi", new OINachi());
-		operatorChooser.addObject("Griffin", new OIGriffin());
+		autoChooser = new CommandSendableChooser();
+		autoChooser.addDefault(new AutonomousIdle(RobotMap.grabber, RobotMap.winch));
+		// Initialize and configure operator command chooser
+		operatorChooser = new TypedNamedSendableChooser<OI>();
+		operatorChooser.addDefault(new OINachi());
+		operatorChooser.addObject(new OIGriffin());
 		// Display autonomous chooser on SmartDashboard
 		SmartDashboard.putData("Autonomous mode chooser", autoChooser);
 		SmartDashboard.putData("Operator control scheme chooser", operatorChooser);
@@ -49,7 +47,7 @@ public class Robot extends IterativeRobot {
 	
 	public void autonomousInit() {
 		// Get chosen autonomous command
-		autonomousCommand = (Command) autoChooser.getSelected();
+		autonomousCommand = autoChooser.getSelected();
 		// Schedule the autonomous command
 		autonomousCommand.start();
 	}
@@ -57,9 +55,7 @@ public class Robot extends IterativeRobot {
 	/**
 	 * This function is called periodically during autonomous
 	 */
-	public void autonomousPeriodic() {
-		Scheduler.getInstance().run();
-	}
+	public void autonomousPeriodic() {}
 	
 	public void teleopInit() {
 		// This makes sure that the autonomous stops running when
@@ -67,21 +63,26 @@ public class Robot extends IterativeRobot {
 		// continue until interrupted by another command, remove
 		// this line or comment it out.
 		autonomousCommand.cancel();
-		Scheduler.getInstance().add(new XboxDrive());
+		(new XboxDrive(this, RobotMap.chassis)).start();
 	}
 	
 	/**
 	 * This function is called periodically during operator control
 	 */
-	public void teleopPeriodic() {
-		Scheduler.getInstance().add(new XboxDrive());
-		Scheduler.getInstance().run();
-	}
+	public void teleopPeriodic() {}
 	
 	/**
 	 * This function is called periodically during test mode
 	 */
 	public void testPeriodic() {
 		LiveWindow.run();
+	}
+	
+	public boolean isEnabledOperatorControl() {
+		return isEnabled() && isOperatorControl();
+	}
+	
+	public boolean isEnabledAutonomous() {
+		return isEnabled() && isAutonomous();
 	}
 }

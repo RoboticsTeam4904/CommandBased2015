@@ -2,6 +2,7 @@ package org.usfirst.frc4904.cmdbased;
 
 
 import org.usfirst.frc4904.cmdbased.commands.Kill;
+import org.usfirst.frc4904.cmdbased.custom.Named;
 import org.usfirst.frc4904.cmdbased.custom.XboxController;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
@@ -11,7 +12,7 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
  */
-public class OI {
+public class OI implements Named {
 	// Driver
 	public final XboxController xbox;
 	// Operator
@@ -53,5 +54,9 @@ public class OI {
 		// Bind driver buttons to commands
 		xbox.back.whenPressed(new Kill());
 		// Operators should extend this class
+	}
+	
+	public String getName() {
+		return "OI";
 	}
 }
