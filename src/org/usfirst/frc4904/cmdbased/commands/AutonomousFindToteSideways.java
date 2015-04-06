@@ -1,17 +1,24 @@
 package org.usfirst.frc4904.cmdbased.commands;
 
 
-import edu.wpi.first.wpilibj.command.Scheduler;
+import org.usfirst.frc4904.cmdbased.custom.LIDAR;
+import org.usfirst.frc4904.cmdbased.subsystems.Chassis;
+import edu.wpi.first.wpilibj.command.Command;
 
-public class AutonomousFindToteSideways extends CommandBase {
-	public AutonomousFindToteSideways() {
+public class AutonomousFindToteSideways extends Command {
+	private final Chassis chassis;
+	private final LIDAR lidar;
+	
+	public AutonomousFindToteSideways(Chassis chassis, LIDAR lidar) {
 		super("AutonomousFindToteSideways");
+		this.chassis = chassis;
+		this.lidar = lidar;
 	}
 	
 	protected void initialize() {}
 	
 	protected void execute() {
-		Scheduler.getInstance().add(new ChassisDriveCartesian(1, 0));
+		(new ChassisDriveCartesian(chassis, 1, 0)).start();
 	}
 	
 	protected void end() {}
@@ -19,6 +26,6 @@ public class AutonomousFindToteSideways extends CommandBase {
 	protected void interrupted() {}
 	
 	protected boolean isFinished() {
-		return lidar.getDists()[0] < 100;
+		return lidar.getCorrectedAngleDist(0) < 100;
 	}
 }

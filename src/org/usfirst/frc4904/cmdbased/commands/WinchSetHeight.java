@@ -1,13 +1,18 @@
 package org.usfirst.frc4904.cmdbased.commands;
 
 
-public class WinchSetHeight extends CommandBase {
+import org.usfirst.frc4904.cmdbased.subsystems.Winch;
+import edu.wpi.first.wpilibj.command.Command;
+
+public class WinchSetHeight extends Command {
+	private final Winch winch;
 	private final double desiredPosition;
 	
-	public WinchSetHeight(double desiredPosition) {
+	public WinchSetHeight(Winch winch, double desiredPosition) {
 		super("WinchSetHeight");
-		requires(winch);
+		this.winch = winch;
 		this.desiredPosition = desiredPosition;
+		requires(winch);
 	}
 	
 	protected void initialize() {
@@ -18,7 +23,7 @@ public class WinchSetHeight extends CommandBase {
 	protected void execute() {}
 	
 	protected void end() {}
-
+	
 	protected void interrupted() {}
 	
 	protected boolean isFinished() {

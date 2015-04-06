@@ -14,7 +14,7 @@ public class Winch extends EncodedMotor {
 	}
 	
 	protected void initDefaultCommand() {
-		setDefaultCommand(new WinchIdle());
+		setDefaultCommand(new WinchIdle(this));
 		setAbsoluteTolerance(RobotMap.WINCH_ERROR_MARGIN);
 	}
 	

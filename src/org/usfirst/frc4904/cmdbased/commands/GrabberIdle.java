@@ -1,16 +1,23 @@
 package org.usfirst.frc4904.cmdbased.commands;
 
 
-public class GrabberIdle extends CommandBase {
-	public GrabberIdle() {
+import org.usfirst.frc4904.cmdbased.subsystems.Grabber;
+import edu.wpi.first.wpilibj.command.Command;
+
+public class GrabberIdle extends Command {
+	private final Grabber grabber;
+	
+	public GrabberIdle(Grabber grabber) {
 		super("GrabberIdle");
+		this.grabber = grabber;
 		requires(grabber);
 	}
-
+	
 	protected void initialize() {
+		setInterruptible(true); // default command
 		grabber.set(0);
 	}
-
+	
 	protected void execute() {}
 	
 	protected void end() {}
@@ -19,9 +26,5 @@ public class GrabberIdle extends CommandBase {
 	
 	protected boolean isFinished() {
 		return false; // default command
-	}
-	
-	public boolean isInterruptible() {
-		return true; // default command
 	}
 }

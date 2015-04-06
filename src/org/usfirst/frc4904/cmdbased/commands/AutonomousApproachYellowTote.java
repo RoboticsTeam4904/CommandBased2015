@@ -1,17 +1,27 @@
 package org.usfirst.frc4904.cmdbased.commands;
 
 
-import edu.wpi.first.wpilibj.command.Scheduler;
+import org.usfirst.frc4904.cmdbased.custom.LIDAR;
+import org.usfirst.frc4904.cmdbased.subsystems.Camera;
+import org.usfirst.frc4904.cmdbased.subsystems.Chassis;
+import edu.wpi.first.wpilibj.command.Command;
 
-public class AutonomousApproachYellowTote extends CommandBase {
-	public AutonomousApproachYellowTote() {
+public class AutonomousApproachYellowTote extends Command {
+	private final Chassis chassis;
+	private final Camera camera;
+	private final LIDAR lidar;
+	
+	public AutonomousApproachYellowTote(Chassis chassis, Camera camera, LIDAR lidar) {
 		super("AutonomousApproachYellowTote");
+		this.chassis = chassis;
+		this.camera = camera;
+		this.lidar = lidar;
 	}
 	
 	protected void initialize() {}
 	
 	protected void execute() {
-		Scheduler.getInstance().add(new ChassisDriveCartesian(-1 * camera.getYellowTote()[0], 1));
+		(new ChassisDriveCartesian(chassis, -1 * camera.getYellowTote()[0], 1)).start();
 	}
 	
 	protected void end() {}
@@ -19,6 +29,6 @@ public class AutonomousApproachYellowTote extends CommandBase {
 	protected void interrupted() {}
 	
 	protected boolean isFinished() {
-		return !(lidar.getXY(0)[0] < 100 && lidar.getXY(1)[0] < 100 && lidar.getXY(359)[0] < 100); // There is probably a better way to do this
+		return lidar.getCorrectedAngleDist(0) < 100;
 	}
 }

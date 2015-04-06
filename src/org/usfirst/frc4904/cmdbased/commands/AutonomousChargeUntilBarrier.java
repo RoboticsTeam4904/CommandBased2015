@@ -1,13 +1,24 @@
 package org.usfirst.frc4904.cmdbased.commands;
 
 
-import edu.wpi.first.wpilibj.command.Scheduler;
+import org.usfirst.frc4904.cmdbased.custom.LIDAR;
+import org.usfirst.frc4904.cmdbased.subsystems.Chassis;
+import edu.wpi.first.wpilibj.command.Command;
 
-public class AutonomousChargeUntilBarrier extends CommandBase {
+public class AutonomousChargeUntilBarrier extends Command {
+	private final Chassis chassis;
+	private final LIDAR lidar;
+	
+	public AutonomousChargeUntilBarrier(Chassis chassis, LIDAR lidar) {
+		super("AutonomousChargeUntilBarrier");
+		this.chassis = chassis;
+		this.lidar = lidar;
+	}
+	
 	protected void initialize() {}
 	
 	protected void execute() {
-		Scheduler.getInstance().add(new ChassisDrive(1, 0));
+		(new ChassisDrive(chassis, 1, 0)).start();
 	}
 	
 	protected void end() {}
@@ -15,6 +26,6 @@ public class AutonomousChargeUntilBarrier extends CommandBase {
 	protected void interrupted() {}
 	
 	protected boolean isFinished() {
-		return lidar.getDists()[90] < 100;
+		return lidar.getCorrectedAngleDist(0) < 100;
 	}
 }

@@ -1,19 +1,17 @@
 package org.usfirst.frc4904.cmdbased.commands;
 
 
+import org.usfirst.frc4904.cmdbased.subsystems.Chassis;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 public class ChassisIdle extends CommandGroup {
-	public ChassisIdle() {
+	public ChassisIdle(Chassis chassis) {
 		super("ChassisIdle");
-		requires(CommandBase.chassis);
-		addParallel(new WheelIdle(CommandBase.chassis.frontLeftWheel));
-		addParallel(new WheelIdle(CommandBase.chassis.frontRightWheel));
-		addParallel(new WheelIdle(CommandBase.chassis.backLeftWheel));
-		addParallel(new WheelIdle(CommandBase.chassis.backRightWheel));
-	}
-	
-	public boolean isInterruptible() {
-		return true; // default command
+		requires(chassis);
+		setInterruptible(true); // default command
+		addParallel(new WheelIdle(chassis.frontLeftWheel));
+		addParallel(new WheelIdle(chassis.frontRightWheel));
+		addParallel(new WheelIdle(chassis.backLeftWheel));
+		addParallel(new WheelIdle(chassis.backRightWheel));
 	}
 }

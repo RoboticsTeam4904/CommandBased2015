@@ -2,21 +2,22 @@ package org.usfirst.frc4904.cmdbased.commands;
 
 
 import org.usfirst.frc4904.cmdbased.custom.MecanumHelper;
+import org.usfirst.frc4904.cmdbased.subsystems.Chassis;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 public class ChassisDriveCartesian extends CommandGroup {
-	public ChassisDriveCartesian(double xSpeed, double ySpeed, double turnSpeed) {
+	public ChassisDriveCartesian(Chassis chassis, double xSpeed, double ySpeed, double turnSpeed) {
 		super("ChassisDriveCartesian");
-		requires(CommandBase.chassis);
+		requires(chassis);
 		// Calclulations (defines output variables for verbosity)
 		double[] polar = MecanumHelper.cartesianToPolar(xSpeed, ySpeed);
 		double speed = polar[0];
 		double angle = polar[1];
 		// Commands
-		addSequential(new ChassisDrive(speed, angle, turnSpeed));
+		addSequential(new ChassisDrive(chassis, speed, angle, turnSpeed));
 	}
 	
-	public ChassisDriveCartesian(double speed, double angle) {
-		new ChassisDriveCartesian(speed, angle, 0);
+	public ChassisDriveCartesian(Chassis chassis, double speed, double angle) {
+		new ChassisDriveCartesian(chassis, speed, angle, 0);
 	}
 }

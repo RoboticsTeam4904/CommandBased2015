@@ -27,7 +27,7 @@ public class Camera extends Subsystem {
 	}
 	
 	protected void initDefaultCommand() {
-		setDefaultCommand(new CameraUpdate());
+		setDefaultCommand(new CameraUpdate(this));
 	}
 	
 	public double[] getYellowTote() { // This function will return the x, y coordinates of the center of the yellow tote.

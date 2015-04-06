@@ -15,17 +15,17 @@ public class Grabber extends Subsystem {
 		this.limitSwitches = limitSwitches;
 		this.motor = motor;
 	}
-
+	
 	protected void initDefaultCommand() {
-		setDefaultCommand(new GrabberIdle());
+		setDefaultCommand(new GrabberIdle(this));
 	}
-
+	
 	public void set(double value) {
 		if (value <= 1 && value >= -1) {
 			motor.set(value);
 		}
 	}
-
+	
 	public boolean isInnerSwitchPressed() {
 		return limitSwitches.isInnerSwitchPressed();
 	}

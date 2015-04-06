@@ -4,13 +4,18 @@ package org.usfirst.frc4904.cmdbased.commands;
 import java.util.Vector;
 import org.usfirst.frc4904.cmdbased.RobotMap;
 import org.usfirst.frc4904.cmdbased.custom.ParticleReport;
+import org.usfirst.frc4904.cmdbased.subsystems.Camera;
 import com.ni.vision.NIVision;
 import com.ni.vision.NIVision.Image;
 import com.ni.vision.NIVision.ImageType;
+import edu.wpi.first.wpilibj.command.Command;
 
-public class CameraUpdate extends CommandBase {
-	public CameraUpdate() {
+public class CameraUpdate extends Command {
+	private final Camera camera;
+	
+	public CameraUpdate(Camera camera) {
 		super("CameraUpdate");
+		this.camera = camera;
 		requires(camera);
 	}
 	
@@ -45,8 +50,8 @@ public class CameraUpdate extends CommandBase {
 		particles.sort(null);// I find it easy to believe that this will work in any way
 		ParticleReport tote = particles.get(0);
 		// Actually get center
-		camera.toteCoord[0] = (tote.BoundingRectRight + tote.BoundingRectLeft) / 2;
-		camera.toteCoord[1] = (tote.BoundingRectTop + tote.BoundingRectBottom) / 2;
+		RobotMap.camera.toteCoord[0] = (tote.BoundingRectRight + tote.BoundingRectLeft) / 2;
+		RobotMap.camera.toteCoord[1] = (tote.BoundingRectTop + tote.BoundingRectBottom) / 2;
 	}
 	
 	protected void end() {}

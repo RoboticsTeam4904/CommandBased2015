@@ -1,20 +1,18 @@
 package org.usfirst.frc4904.cmdbased.commands;
 
 
+import org.usfirst.frc4904.cmdbased.RobotMap;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 public class Kill extends CommandGroup {
 	public Kill() {
 		super("Kill");
-		requires(CommandBase.chassis);
-		requires(CommandBase.winch);
-		requires(CommandBase.grabber);
-		addParallel(new ChassisIdle());
-		addParallel(new WinchIdle());
-		addParallel(new GrabberIdle());
-	}
-	
-	public boolean isInterruptible() {
-		return false; // should kill robot forever
+		requires(RobotMap.chassis);
+		requires(RobotMap.winch);
+		requires(RobotMap.grabber);
+		setInterruptible(false); // should kill robot forever
+		addParallel(new ChassisIdle(RobotMap.chassis));
+		addParallel(new WinchIdle(RobotMap.winch));
+		addParallel(new GrabberIdle(RobotMap.grabber));
 	}
 }
