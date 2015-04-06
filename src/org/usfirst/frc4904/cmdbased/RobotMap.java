@@ -3,15 +3,15 @@ package org.usfirst.frc4904.cmdbased;
 
 import org.usfirst.frc4904.cmdbased.custom.IMU;
 import org.usfirst.frc4904.cmdbased.custom.LIDAR;
-import org.usfirst.frc4904.cmdbased.custom.SuperEncoder;
 import org.usfirst.frc4904.cmdbased.subsystems.Camera;
+import org.usfirst.frc4904.cmdbased.subsystems.Chassis;
 import org.usfirst.frc4904.cmdbased.subsystems.EncodedMotor;
 import org.usfirst.frc4904.cmdbased.subsystems.Grabber;
 import org.usfirst.frc4904.cmdbased.subsystems.LimitSwitchSystem;
-import org.usfirst.frc4904.cmdbased.subsystems.Chassis;
 import org.usfirst.frc4904.cmdbased.subsystems.Winch;
 import com.ni.vision.NIVision;
 import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.VictorSP;
 
@@ -69,11 +69,11 @@ public class RobotMap {
 	public static final DigitalInput RIGHT_OUTER_SWITCH = new DigitalInput(2);
 	public static final DigitalInput LEFT_OUTER_SWITCH = new DigitalInput(3);
 	// Encoders
-	public static final SuperEncoder FRONT_LEFT_WHEEL_ENCODER = new SuperEncoder(10);
-	public static final SuperEncoder FRONT_RIGHT_WHEEL_ENCODER = new SuperEncoder(11);
-	public static final SuperEncoder BACK_LEFT_WHEEL_ENCODER = new SuperEncoder(12);
-	public static final SuperEncoder BACK_RIGHT_WHEEL_ENCODER = new SuperEncoder(13);
-	public static final SuperEncoder WINCH_ENCODER = new SuperEncoder(14); // TODO set to correct port
+	public static final Encoder FRONT_LEFT_WHEEL_ENCODER = new Encoder(1, 10);
+	public static final Encoder FRONT_RIGHT_WHEEL_ENCODER = new Encoder(2, 11);
+	public static final Encoder BACK_LEFT_WHEEL_ENCODER = new Encoder(3, 12);
+	public static final Encoder BACK_RIGHT_WHEEL_ENCODER = new Encoder(4, 13);
+	public static final Encoder WINCH_ENCODER = new Encoder(0, 5);
 	// IMU
 	public static final IMU IMU_SENSOR = new IMU();
 	// *** SUBSYSTEMS *** //
