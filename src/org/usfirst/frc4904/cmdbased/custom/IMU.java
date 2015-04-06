@@ -1,53 +1,69 @@
 package org.usfirst.frc4904.cmdbased.custom;
 
 
-public class IMU {
-	private final MPU9150 mpu9150;
-	public double[] rawData = new double[10];
-	private double startTime;
-	private long updates = 0;
-	private double currentSpeed;
-	private double currentAngle;
-	private double currentTurnSpeed;
+import java.util.Arrays;
+import edu.wpi.first.wpilibj.PIDSource;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
+public class IMU extends NavX implements PIDSource {
+	private double[] angles; // Angle 0 is perpendicular (yaw), Angle 1 is lateral (pitch), Angle 2 is longitudinal (roll)
+	private double[] lastAngles;
+	private double[] rate; // Same as above
+	private double lastTime;
+	private static final double GOING_OVER_PLATFORM_ANGLE = 5;
+	private static final double TURN_SCALE = 1.0 / 360.0; // Scale degrees per second to between -1 and 1
 	
 	public IMU() {
-		mpu9150 = new MPU9150();
-		mpu9150.init();
+		super();
+		angles = new double[3];
+		lastAngles = new double[3];
+		rate = new double[3];
+		Arrays.fill(angles, 0);
+		Arrays.fill(lastAngles, 0);
+		lastTime = getTime();
 		zero();
-		currentSpeed = 0;
-		currentAngle = 0;
-		currentTurnSpeed = 0;
 	}
 	
-	public int test() {
-		return mpu9150.test();
-	}
-	
-	public double getAngle() {
-		// TODO return current robot angle relative to beginning of match (0 - 2pi)
-		return 0D;
+	public double[] readRate() {
+		return rate;
 	}
 	
 	public void zero() {
-		// TODO set current orientation as "forward"
-		update();
-		startTime = System.currentTimeMillis() / 1000;
-		updates = 0;
+		super.zeroYaw();
 	}
 	
-	public void update() {
-		mpu9150.update();
-		readData();
+	public synchronized void update() {
+		double time = getTime();
+		updateData();
+		for (int i = 0; i < 3; i++) {
+			rate[i] = ((angles[i] - lastAngles[i]) / (time - lastTime)) * TURN_SCALE;
+		}
+		lastTime = time;
+		lastAngles = angles;
 	}
 	
-	public double[] getMovement() {
-		return new double[] {currentSpeed, currentAngle, currentTurnSpeed};
+	private void updateData() {
+		angles[0] = super.getYaw();
+		angles[1] = super.getRoll();
+		angles[2] = super.getPitch();
+		SmartDashboard.putNumber("Yaw", angles[0]);
+		SmartDashboard.putNumber("Pitch", angles[1]); // This might be roll
+		SmartDashboard.putNumber("Roll", angles[2]); // This might be pitch
 	}
 	
-	private void readData() {
-		updates++;
-		// TODO only read data if enough data is available, otherwise return so
-		// that this function is always fast
-		rawData = mpu9150.read();
+	public double[] read() {
+		return angles;
+	}
+	
+	private double getTime() {
+		return System.currentTimeMillis();
+	}
+	
+	public boolean isGoingOverScoringPlatform() {
+		return (angles[1] > GOING_OVER_PLATFORM_ANGLE && angles[1] < 360 - GOING_OVER_PLATFORM_ANGLE) || (angles[2] > GOING_OVER_PLATFORM_ANGLE && angles[2] < 360 - GOING_OVER_PLATFORM_ANGLE);
+	}
+	
+	public double pidGet() {
+		return angles[0];
 	}
 }
