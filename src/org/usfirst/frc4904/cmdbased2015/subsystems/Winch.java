@@ -1,8 +1,9 @@
-package org.usfirst.frc4904.cmdbased.subsystems;
+package org.usfirst.frc4904.cmdbased2015.subsystems;
 
 
-import org.usfirst.frc4904.cmdbased.RobotMap;
-import org.usfirst.frc4904.cmdbased.commands.WinchIdle;
+import org.usfirst.frc4904.cmdbased.subsystems.EncodedMotor;
+import org.usfirst.frc4904.cmdbased2015.RobotMap;
+import org.usfirst.frc4904.cmdbased2015.commands.WinchIdle;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;

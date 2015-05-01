@@ -1,8 +1,8 @@
-package org.usfirst.frc4904.cmdbased.commands;
+package org.usfirst.frc4904.cmdbased2015.commands;
 
 
-import org.usfirst.frc4904.cmdbased.RobotMap;
-import org.usfirst.frc4904.cmdbased.subsystems.Grabber;
+import org.usfirst.frc4904.cmdbased2015.RobotMap;
+import org.usfirst.frc4904.cmdbased2015.subsystems.Grabber;
 import edu.wpi.first.wpilibj.command.Command;
 
 public class GrabberClose extends Command {

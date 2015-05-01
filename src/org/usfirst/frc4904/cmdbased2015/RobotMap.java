@@ -1,13 +1,13 @@
-package org.usfirst.frc4904.cmdbased;
+package org.usfirst.frc4904.cmdbased2015;
 
 
-import org.usfirst.frc4904.cmdbased.custom.IMU;
 import org.usfirst.frc4904.cmdbased.custom.LIDAR;
-import org.usfirst.frc4904.cmdbased.subsystems.Chassis;
 import org.usfirst.frc4904.cmdbased.subsystems.EncodedMotor;
-import org.usfirst.frc4904.cmdbased.subsystems.Grabber;
-import org.usfirst.frc4904.cmdbased.subsystems.LimitSwitchSystem;
-import org.usfirst.frc4904.cmdbased.subsystems.Winch;
+import org.usfirst.frc4904.cmdbased2015.custom.IMU;
+import org.usfirst.frc4904.cmdbased2015.subsystems.Chassis2015;
+import org.usfirst.frc4904.cmdbased2015.subsystems.Grabber;
+import org.usfirst.frc4904.cmdbased2015.subsystems.LimitSwitchSystem;
+import org.usfirst.frc4904.cmdbased2015.subsystems.Winch;
 import com.ni.vision.NIVision;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Encoder;
@@ -73,7 +73,7 @@ public class RobotMap {
 	public static final EncodedMotor frontRightWheel = new EncodedMotor("frontRightWheel", 1.0, 0.3, 0.3, RobotMap.FRONT_RIGHT_WHEEL_MOTOR, RobotMap.FRONT_RIGHT_WHEEL_ENCODER);
 	public static final EncodedMotor backLeftWheel = new EncodedMotor("backLeftWheel", 1.0, 0.3, 0.3, RobotMap.BACK_LEFT_WHEEL_MOTOR, RobotMap.BACK_LEFT_WHEEL_ENCODER);
 	public static final EncodedMotor backRightWheel = new EncodedMotor("backRightWheel", 1.0, 0.3, 0.3, RobotMap.BACK_RIGHT_WHEEL_MOTOR, RobotMap.BACK_RIGHT_WHEEL_ENCODER);
-	public static final Chassis chassis = new Chassis(frontLeftWheel, frontRightWheel, backLeftWheel, backRightWheel);
+	public static final Chassis2015 chassis = new Chassis2015(frontLeftWheel, frontRightWheel, backLeftWheel, backRightWheel);
 	// Initialize winch
 	public static final Winch winch = new Winch(RobotMap.WINCH_MOTOR, RobotMap.WINCH_ENCODER);
 	// Initialize grabber and its limit switches

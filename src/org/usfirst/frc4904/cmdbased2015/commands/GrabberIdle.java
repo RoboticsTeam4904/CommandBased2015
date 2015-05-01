@@ -1,18 +1,18 @@
-package org.usfirst.frc4904.cmdbased.commands;
+package org.usfirst.frc4904.cmdbased2015.commands;
 
 
-import org.usfirst.frc4904.cmdbased.RobotMap;
+import org.usfirst.frc4904.cmdbased2015.RobotMap;
 import edu.wpi.first.wpilibj.command.Command;
 
-public class GrabberHold extends Command {
-	public GrabberHold() {
-		super("GrabberHold");
+public class GrabberIdle extends Command {
+	public GrabberIdle() {
+		super("GrabberIdle");
 	}
 	
 	protected void initialize() {
 		requires(RobotMap.grabber);
 		setInterruptible(true);
-		RobotMap.grabber.set(RobotMap.GRABBER_HOLD_SPEED);
+		RobotMap.grabber.set(RobotMap.GRABBER_IDLE_SPEED);
 	}
 	
 	protected void execute() {}

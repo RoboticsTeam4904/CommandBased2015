@@ -1,7 +1,7 @@
-package org.usfirst.frc4904.cmdbased.commands;
+package org.usfirst.frc4904.cmdbased2015.commands;
 
 
-import org.usfirst.frc4904.cmdbased.RobotMap;
+import org.usfirst.frc4904.cmdbased2015.RobotMap;
 import edu.wpi.first.wpilibj.command.Command;
 
 public class GrabberOpen extends Command {

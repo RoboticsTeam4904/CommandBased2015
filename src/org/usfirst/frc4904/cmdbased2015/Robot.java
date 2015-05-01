@@ -4,9 +4,10 @@
 /* must be accompanied by the FIRST BSD license file in the root directory of */
 /* the project. */
 /*----------------------------------------------------------------------------*/
-package org.usfirst.frc4904.cmdbased;
+package org.usfirst.frc4904.cmdbased2015;
 
 
+import org.usfirst.frc4904.cmdbased.RobotBase;
 import org.usfirst.frc4904.cmdbased.commands.ChassisIdle;
 import org.usfirst.frc4904.cmdbased.commands.XboxDrive;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
