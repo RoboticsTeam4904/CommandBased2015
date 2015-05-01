@@ -1,21 +1,17 @@
 package org.usfirst.frc4904.cmdbased.commands;
 
 
-import org.usfirst.frc4904.cmdbased.subsystems.Winch;
+import org.usfirst.frc4904.cmdbased.RobotMap;
 import edu.wpi.first.wpilibj.command.Command;
 
 public class WinchIdle extends Command {
-	private final Winch winch;
-	
-	public WinchIdle(Winch winch) {
+	public WinchIdle() {
 		super("WinchIdle");
-		this.winch = winch;
-		requires(winch);
 	}
 	
 	protected void initialize() {
-		setInterruptible(true); // default command
-		winch.getPIDController().reset(); // resets accumulated PID values and disables
+		requires(RobotMap.winch);
+		RobotMap.winch.disable();
 	}
 	
 	protected void execute() {}
@@ -25,6 +21,6 @@ public class WinchIdle extends Command {
 	protected void interrupted() {}
 	
 	protected boolean isFinished() {
-		return false; // default command
+		return false;
 	}
 }

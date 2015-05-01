@@ -2,22 +2,22 @@ package org.usfirst.frc4904.cmdbased.subsystems;
 
 
 import org.usfirst.frc4904.cmdbased.commands.GrabberIdle;
-import edu.wpi.first.wpilibj.Talon;
+import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class Grabber extends Subsystem {
 	// Define locations of limit switches in array (for clarity)
 	private final LimitSwitchSystem limitSwitches;
-	private final Talon motor;
+	private final SpeedController motor;
 	
-	public Grabber(Talon motor, LimitSwitchSystem limitSwitches) {
+	public Grabber(SpeedController motor, LimitSwitchSystem limitSwitches) {
 		super("Grabber");
 		this.limitSwitches = limitSwitches;
 		this.motor = motor;
 	}
 	
 	protected void initDefaultCommand() {
-		setDefaultCommand(new GrabberIdle(this));
+		setDefaultCommand(new GrabberIdle());
 	}
 	
 	public void set(double value) {

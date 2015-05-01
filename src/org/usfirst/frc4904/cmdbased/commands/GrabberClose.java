@@ -11,10 +11,10 @@ public class GrabberClose extends Command {
 	public GrabberClose(Grabber grabber) {
 		super("GrabberClose");
 		this.grabber = grabber;
-		requires(grabber);
 	}
 	
 	protected void initialize() {
+		requires(grabber);
 		setInterruptible(true);
 		grabber.set(RobotMap.GRABBER_CLOSE_SPEED);
 	}

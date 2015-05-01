@@ -2,21 +2,17 @@ package org.usfirst.frc4904.cmdbased.commands;
 
 
 import org.usfirst.frc4904.cmdbased.RobotMap;
-import org.usfirst.frc4904.cmdbased.subsystems.Grabber;
 import edu.wpi.first.wpilibj.command.Command;
 
 public class GrabberHold extends Command {
-	private final Grabber grabber;
-	
-	public GrabberHold(Grabber grabber) {
+	public GrabberHold() {
 		super("GrabberHold");
-		this.grabber = grabber;
-		requires(grabber);
 	}
 	
 	protected void initialize() {
+		requires(RobotMap.grabber);
 		setInterruptible(true);
-		grabber.set(RobotMap.GRABBER_HOLD_SPEED);
+		RobotMap.grabber.set(RobotMap.GRABBER_HOLD_SPEED);
 	}
 	
 	protected void execute() {}

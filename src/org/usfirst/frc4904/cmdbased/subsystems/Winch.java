@@ -14,7 +14,7 @@ public class Winch extends EncodedMotor {
 	}
 	
 	protected void initDefaultCommand() {
-		setDefaultCommand(new WinchIdle(this));
+		setDefaultCommand(new WinchIdle());
 		setAbsoluteTolerance(RobotMap.WINCH_ERROR_MARGIN);
 	}
 	
@@ -24,5 +24,17 @@ public class Winch extends EncodedMotor {
 	
 	protected void usePIDOutput(double speed) {
 		motor.set(speed);
+	}
+	
+	public void disable() {
+		if (!getPIDController().isEnable()) {
+			getPIDController().disable();
+		}
+	}
+	
+	public void enable() {
+		if (getPIDController().isEnable()) {
+			getPIDController().enable();
+		}
 	}
 }

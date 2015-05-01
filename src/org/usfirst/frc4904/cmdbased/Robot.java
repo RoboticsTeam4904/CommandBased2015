@@ -7,13 +7,9 @@
 package org.usfirst.frc4904.cmdbased;
 
 
-import org.usfirst.frc4904.cmdbased.commands.AutonomousIdle;
+import org.usfirst.frc4904.cmdbased.commands.ChassisIdle;
 import org.usfirst.frc4904.cmdbased.commands.XboxDrive;
-import org.usfirst.frc4904.cmdbased.custom.CommandSendableChooser;
-import org.usfirst.frc4904.cmdbased.custom.TypedNamedSendableChooser;
-import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -23,31 +19,28 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  * directory.
  */
 public class Robot extends RobotBase {
-	private Command autonomousCommand;
-	private CommandSendableChooser autoChooser;
-	private TypedNamedSendableChooser<OI> operatorChooser;
-	
 	/**
 	 * This function is run when the robot is first started up and should be
 	 * used for any initialization code.
 	 */
 	public void robotInit() {
-		// Initialize and configure autonomous command chooser
-		autoChooser = new CommandSendableChooser();
-		autoChooser.addDefault(new AutonomousIdle(RobotMap.grabber, RobotMap.winch));
-		// Initialize and configure operator command chooser
-		operatorChooser = new TypedNamedSendableChooser<OI>();
-		operatorChooser.addDefault(new OINachi());
-		operatorChooser.addObject(new OIGriffin());
-		// Display autonomous chooser on SmartDashboard
-		SmartDashboard.putData("Autonomous mode chooser", autoChooser);
-		SmartDashboard.putData("Operator control scheme chooser", operatorChooser);
+		super.robotInit();
+		// Configure autonomous command chooser
+		autoChooser.addDefault(new ChassisIdle(RobotMap.chassis));
+		// Configure driver command chooser
+		driverChooser.addDefault(new Nathan());
+		// Configure operator command chooser
+		operatorChooser.addDefault(new Nachi());
+		operatorChooser.addObject(new Griffin());
+		// Display choosers on SmartDashboard
+		displayChoosers();
 	}
 	
 	public void autonomousInit() {
 		// Get chosen autonomous command
 		autonomousCommand = autoChooser.getSelected();
 		// Schedule the autonomous command
+		teleopCommand.cancel();
 		autonomousCommand.start();
 	}
 	
@@ -62,7 +55,8 @@ public class Robot extends RobotBase {
 		// continue until interrupted by another command, remove
 		// this line or comment it out.
 		autonomousCommand.cancel();
-		(new XboxDrive(this, RobotMap.chassis)).start();
+		teleopCommand = new XboxDrive(RobotMap.chassis, DriverStationMap.xbox, 1, 1, 1);
+		teleopCommand.start();
 	}
 	
 	/**

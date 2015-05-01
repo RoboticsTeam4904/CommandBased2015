@@ -1,21 +1,18 @@
 package org.usfirst.frc4904.cmdbased.commands;
 
 
-import org.usfirst.frc4904.cmdbased.subsystems.Grabber;
+import org.usfirst.frc4904.cmdbased.RobotMap;
 import edu.wpi.first.wpilibj.command.Command;
 
 public class GrabberIdle extends Command {
-	private final Grabber grabber;
-	
-	public GrabberIdle(Grabber grabber) {
+	public GrabberIdle() {
 		super("GrabberIdle");
-		this.grabber = grabber;
-		requires(grabber);
 	}
 	
 	protected void initialize() {
-		setInterruptible(true); // default command
-		grabber.set(0);
+		requires(RobotMap.grabber);
+		setInterruptible(true);
+		RobotMap.grabber.set(RobotMap.GRABBER_IDLE_SPEED);
 	}
 	
 	protected void execute() {}
@@ -25,6 +22,6 @@ public class GrabberIdle extends Command {
 	protected void interrupted() {}
 	
 	protected boolean isFinished() {
-		return false; // default command
+		return false;
 	}
 }

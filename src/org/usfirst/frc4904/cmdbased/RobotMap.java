@@ -3,7 +3,6 @@ package org.usfirst.frc4904.cmdbased;
 
 import org.usfirst.frc4904.cmdbased.custom.IMU;
 import org.usfirst.frc4904.cmdbased.custom.LIDAR;
-import org.usfirst.frc4904.cmdbased.subsystems.Camera;
 import org.usfirst.frc4904.cmdbased.subsystems.Chassis;
 import org.usfirst.frc4904.cmdbased.subsystems.EncodedMotor;
 import org.usfirst.frc4904.cmdbased.subsystems.Grabber;
@@ -22,26 +21,21 @@ import edu.wpi.first.wpilibj.VictorSP;
  * floating around.
  */
 public class RobotMap {
-	public static OI oi = new OI();;
 	// *** CONSTANTS *** //
 	// Size constants
-	public static final double TOTE_GRAB_HEIGHT = 1; // TODO add actual value
+	public static final double TOTE_GRAB_HEIGHT = 1; // 1 half-tote (lowest grabber can go)
 	public static final double CAN_GRAB_HEIGHT = 1; // TODO add actual value
-	// OI constants
-	public static final double X_SPEED_SCALE = -0.66; // negative because axis is flipped
-	public static final double Y_SPEED_SCALE = 0.66;
-	public static final double TURN_SPEED_SCALE = 0.5;
-	public static final double XBOX_MINIMUM_THRESHOLD = 0.1;
 	// Winch constants
-	public static final double WINCH_MAX_HEIGHT = 12; // each level is half a tote height
+	public static final double WINCH_MAX_HEIGHT = 9; // each level is half a tote height
 	public static final double WINCH_ERROR_MARGIN = 0.5; // in half-totes
 	public static final double WINCH_P = 1;
 	public static final double WINCH_I = 0.3;
 	public static final double WINCH_D = 0.3;
 	// Grabber constants
 	public static final double GRABBER_OPEN_SPEED = 0.5;
-	public static final double GRABBER_CLOSE_SPEED = 0.5;
-	public static final double GRABBER_HOLD_SPEED = 0.5;
+	public static final double GRABBER_CLOSE_SPEED = -0.25;
+	public static final double GRABBER_HOLD_SPEED = -0.1;
+	public static final double GRABBER_IDLE_SPEED = 0;
 	// Camera constants
 	public static final NIVision.Range CAMERA_TOTE_HUE_RANGE = new NIVision.Range(101, 64); // Default hue range for yellow tote
 	public static final NIVision.Range CAMERA_TOTE_SAT_RANGE = new NIVision.Range(88, 255); // Default saturation range for yellow tote
@@ -52,9 +46,6 @@ public class RobotMap {
 	public static final double CAMERA_SCORE_MIN = 75.0; // Minimum score to be considered a tote
 	public static final String CAMERA_NAME = "cam1";
 	// *** PHYSICAL COMPONENTS *** //
-	// Joystick/controller ports (initialized in OI)
-	public static final int JOYSTICK_PORT = 0;
-	public static final int XBOX_CONTROLLER_PORT = 1;
 	// VictorSP-controlled motors
 	public static final VictorSP FRONT_LEFT_WHEEL_MOTOR = new VictorSP(0);
 	public static final VictorSP FRONT_RIGHT_WHEEL_MOTOR = new VictorSP(1);
@@ -90,6 +81,4 @@ public class RobotMap {
 	public static final Grabber grabber = new Grabber(RobotMap.GRABBER_MOTOR, limitSwitches);
 	// Initialize LIDAR
 	public static final LIDAR lidar = new LIDAR();
-	// Initialize camera
-	public static final Camera camera = new Camera();
 }
