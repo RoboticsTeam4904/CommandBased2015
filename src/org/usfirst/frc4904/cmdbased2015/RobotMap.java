@@ -2,7 +2,7 @@ package org.usfirst.frc4904.cmdbased2015;
 
 
 import org.usfirst.frc4904.cmdbased.custom.LIDAR;
-import org.usfirst.frc4904.cmdbased.subsystems.EncodedMotor;
+import org.usfirst.frc4904.cmdbased.subsystems.Motor;
 import org.usfirst.frc4904.cmdbased2015.custom.IMU;
 import org.usfirst.frc4904.cmdbased2015.subsystems.Chassis2015;
 import org.usfirst.frc4904.cmdbased2015.subsystems.Grabber;
@@ -69,10 +69,14 @@ public class RobotMap {
 	public static final IMU IMU_SENSOR = new IMU();
 	// *** SUBSYSTEMS *** //
 	// Initialize wheels and chassis
-	public static final EncodedMotor frontLeftWheel = new EncodedMotor("frontLeftWheel", 1.0, 0.3, 0.3, RobotMap.FRONT_LEFT_WHEEL_MOTOR, RobotMap.FRONT_LEFT_WHEEL_ENCODER);
-	public static final EncodedMotor frontRightWheel = new EncodedMotor("frontRightWheel", 1.0, 0.3, 0.3, RobotMap.FRONT_RIGHT_WHEEL_MOTOR, RobotMap.FRONT_RIGHT_WHEEL_ENCODER);
-	public static final EncodedMotor backLeftWheel = new EncodedMotor("backLeftWheel", 1.0, 0.3, 0.3, RobotMap.BACK_LEFT_WHEEL_MOTOR, RobotMap.BACK_LEFT_WHEEL_ENCODER);
-	public static final EncodedMotor backRightWheel = new EncodedMotor("backRightWheel", 1.0, 0.3, 0.3, RobotMap.BACK_RIGHT_WHEEL_MOTOR, RobotMap.BACK_RIGHT_WHEEL_ENCODER);
+	// public static final EncodedMotor frontLeftWheel = new EncodedMotor("frontLeftWheel", 1.0, 0.3, 0.3, RobotMap.FRONT_LEFT_WHEEL_MOTOR, RobotMap.FRONT_LEFT_WHEEL_ENCODER);
+	// public static final EncodedMotor frontRightWheel = new EncodedMotor("frontRightWheel", 1.0, 0.3, 0.3, RobotMap.FRONT_RIGHT_WHEEL_MOTOR, RobotMap.FRONT_RIGHT_WHEEL_ENCODER);
+	// public static final EncodedMotor backLeftWheel = new EncodedMotor("backLeftWheel", 1.0, 0.3, 0.3, RobotMap.BACK_LEFT_WHEEL_MOTOR, RobotMap.BACK_LEFT_WHEEL_ENCODER);
+	// public static final EncodedMotor backRightWheel = new EncodedMotor("backRightWheel", 1.0, 0.3, 0.3, RobotMap.BACK_RIGHT_WHEEL_MOTOR, RobotMap.BACK_RIGHT_WHEEL_ENCODER);
+	public static final Motor frontLeftWheel = new Motor("frontLeftWheel", RobotMap.FRONT_LEFT_WHEEL_MOTOR);
+	public static final Motor frontRightWheel = new Motor("frontRightWheel", RobotMap.FRONT_RIGHT_WHEEL_MOTOR);
+	public static final Motor backLeftWheel = new Motor("backLeftWheel", RobotMap.BACK_LEFT_WHEEL_MOTOR);
+	public static final Motor backRightWheel = new Motor("backRightWheel", RobotMap.BACK_RIGHT_WHEEL_MOTOR);
 	public static final Chassis2015 chassis = new Chassis2015(frontLeftWheel, frontRightWheel, backLeftWheel, backRightWheel);
 	// Initialize winch
 	public static final Winch winch = new Winch(RobotMap.WINCH_MOTOR, RobotMap.WINCH_ENCODER);
