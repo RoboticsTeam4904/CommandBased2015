@@ -1,4 +1,4 @@
-package org.usfirst.frc4904.cmdbased2015;
+package org.usfirst.frc4904.robot;
 
 
 import org.usfirst.frc4904.cmdbased.custom.XboxController;
@@ -18,24 +18,39 @@ public class DriverStationMap {
 	public static final double XBOX_MINIMUM_THRESHOLD = 0.1;
 	// *** DRIVER *** //
 	// Initialize driver Xbox controller
-	public static final XboxController xbox = new XboxController(XBOX_CONTROLLER_PORT);;
+	public static XboxController xbox;
 	// *** OPERATOR *** //
 	// Initialize operator joystick
-	public static final Joystick stick = new Joystick(JOYSTICK_PORT);;
+	public static Joystick stick;
 	// Initialize operator buttons
-	public static final Button button1 = new JoystickButton(stick, 1);
-	public static final Button button2 = new JoystickButton(stick, 2);
-	public static final Button button3 = new JoystickButton(stick, 3);
-	public static final Button button4 = new JoystickButton(stick, 4);
-	public static final Button button5 = new JoystickButton(stick, 5);
-	public static final Button button6 = new JoystickButton(stick, 6);
-	public static final Button button7 = new JoystickButton(stick, 7);
-	public static final Button button8 = new JoystickButton(stick, 8);
-	public static final Button button9 = new JoystickButton(stick, 9);
-	public static final Button button10 = new JoystickButton(stick, 10);
-	public static final Button button11 = new JoystickButton(stick, 11);
-	public static final Button button12 = new JoystickButton(stick, 12);
-	static {
+	public static Button button1;
+	public static Button button2;
+	public static Button button3;
+	public static Button button4;
+	public static Button button5;
+	public static Button button6;
+	public static Button button7;
+	public static Button button8;
+	public static Button button9;
+	public static Button button10;
+	public static Button button11;
+	public static Button button12;
+	
+	public DriverStationMap() {
+		xbox = new XboxController(XBOX_CONTROLLER_PORT);
+		stick = new Joystick(JOYSTICK_PORT);
+		button1 = new JoystickButton(stick, 1);
+		button2 = new JoystickButton(stick, 2);
+		button3 = new JoystickButton(stick, 3);
+		button4 = new JoystickButton(stick, 4);
+		button5 = new JoystickButton(stick, 5);
+		button6 = new JoystickButton(stick, 6);
+		button7 = new JoystickButton(stick, 7);
+		button8 = new JoystickButton(stick, 8);
+		button9 = new JoystickButton(stick, 9);
+		button10 = new JoystickButton(stick, 10);
+		button11 = new JoystickButton(stick, 11);
+		button12 = new JoystickButton(stick, 12);
 		// Initialize driver Xbox controller and buttons
 		DriverStationMap.xbox.rightStick.setXDeadZone(DriverStationMap.XBOX_MINIMUM_THRESHOLD);
 		DriverStationMap.xbox.rightStick.setYDeadZone(DriverStationMap.XBOX_MINIMUM_THRESHOLD);

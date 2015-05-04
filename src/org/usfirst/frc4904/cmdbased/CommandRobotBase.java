@@ -7,7 +7,7 @@ import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-public abstract class RobotBase extends IterativeRobot {
+public abstract class CommandRobotBase extends IterativeRobot {
 	protected Command teleopCommand;
 	protected Command autonomousCommand;
 	protected CommandSendableChooser autoChooser;

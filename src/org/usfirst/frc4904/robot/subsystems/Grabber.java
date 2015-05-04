@@ -1,7 +1,7 @@
-package org.usfirst.frc4904.cmdbased2015.subsystems;
+package org.usfirst.frc4904.robot.subsystems;
 
 
-import org.usfirst.frc4904.cmdbased2015.commands.GrabberIdle;
+import org.usfirst.frc4904.robot.commands.GrabberIdle;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.command.Subsystem;
 

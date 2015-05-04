@@ -1,13 +1,13 @@
-package org.usfirst.frc4904.cmdbased2015;
+package org.usfirst.frc4904.robot;
 
 
 import org.usfirst.frc4904.cmdbased.custom.LIDAR;
 import org.usfirst.frc4904.cmdbased.subsystems.Motor;
-import org.usfirst.frc4904.cmdbased2015.custom.IMU;
-import org.usfirst.frc4904.cmdbased2015.subsystems.Chassis2015;
-import org.usfirst.frc4904.cmdbased2015.subsystems.Grabber;
-import org.usfirst.frc4904.cmdbased2015.subsystems.LimitSwitchSystem;
-import org.usfirst.frc4904.cmdbased2015.subsystems.Winch;
+import org.usfirst.frc4904.robot.custom.IMU;
+import org.usfirst.frc4904.robot.subsystems.Chassis2015;
+import org.usfirst.frc4904.robot.subsystems.Grabber;
+import org.usfirst.frc4904.robot.subsystems.LimitSwitchSystem;
+import org.usfirst.frc4904.robot.subsystems.Winch;
 import com.ni.vision.NIVision;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Encoder;
@@ -47,42 +47,70 @@ public class RobotMap {
 	public static final String CAMERA_NAME = "cam1";
 	// *** PHYSICAL COMPONENTS *** //
 	// VictorSP-controlled motors
-	public static final VictorSP FRONT_LEFT_WHEEL_MOTOR = new VictorSP(0);
-	public static final VictorSP FRONT_RIGHT_WHEEL_MOTOR = new VictorSP(1);
-	public static final VictorSP BACK_LEFT_WHEEL_MOTOR = new VictorSP(2);
-	public static final VictorSP BACK_RIGHT_WHEEL_MOTOR = new VictorSP(3);
+	public static VictorSP FRONT_LEFT_WHEEL_MOTOR;
+	public static VictorSP FRONT_RIGHT_WHEEL_MOTOR;
+	public static VictorSP BACK_LEFT_WHEEL_MOTOR;
+	public static VictorSP BACK_RIGHT_WHEEL_MOTOR;
 	// Talon-controlled motors
-	public static final Talon WINCH_MOTOR = new Talon(4);
-	public static final Talon GRABBER_MOTOR = new Talon(5);
+	public static Talon WINCH_MOTOR;
+	public static Talon GRABBER_MOTOR;
 	// Limit switches
-	public static final DigitalInput RIGHT_INNER_SWITCH = new DigitalInput(0);
-	public static final DigitalInput LEFT_INNER_SWITCH = new DigitalInput(1);
-	public static final DigitalInput RIGHT_OUTER_SWITCH = new DigitalInput(2);
-	public static final DigitalInput LEFT_OUTER_SWITCH = new DigitalInput(3);
+	public static DigitalInput RIGHT_INNER_SWITCH;
+	public static DigitalInput LEFT_INNER_SWITCH;
+	public static DigitalInput RIGHT_OUTER_SWITCH;
+	public static DigitalInput LEFT_OUTER_SWITCH;
 	// Encoders
-	public static final Encoder FRONT_LEFT_WHEEL_ENCODER = new Encoder(1, 10);
-	public static final Encoder FRONT_RIGHT_WHEEL_ENCODER = new Encoder(2, 11);
-	public static final Encoder BACK_LEFT_WHEEL_ENCODER = new Encoder(3, 12);
-	public static final Encoder BACK_RIGHT_WHEEL_ENCODER = new Encoder(4, 13);
-	public static final Encoder WINCH_ENCODER = new Encoder(0, 5);
+	public static Encoder FRONT_LEFT_WHEEL_ENCODER;
+	public static Encoder FRONT_RIGHT_WHEEL_ENCODER;
+	public static Encoder BACK_LEFT_WHEEL_ENCODER;
+	public static Encoder BACK_RIGHT_WHEEL_ENCODER;
+	public static Encoder WINCH_ENCODER;
 	// IMU
-	public static final IMU IMU_SENSOR = new IMU();
+	public static IMU IMU_SENSOR;
 	// *** SUBSYSTEMS *** //
 	// Initialize wheels and chassis
 	// public static final EncodedMotor frontLeftWheel = new EncodedMotor("frontLeftWheel", 1.0, 0.3, 0.3, RobotMap.FRONT_LEFT_WHEEL_MOTOR, RobotMap.FRONT_LEFT_WHEEL_ENCODER);
 	// public static final EncodedMotor frontRightWheel = new EncodedMotor("frontRightWheel", 1.0, 0.3, 0.3, RobotMap.FRONT_RIGHT_WHEEL_MOTOR, RobotMap.FRONT_RIGHT_WHEEL_ENCODER);
 	// public static final EncodedMotor backLeftWheel = new EncodedMotor("backLeftWheel", 1.0, 0.3, 0.3, RobotMap.BACK_LEFT_WHEEL_MOTOR, RobotMap.BACK_LEFT_WHEEL_ENCODER);
 	// public static final EncodedMotor backRightWheel = new EncodedMotor("backRightWheel", 1.0, 0.3, 0.3, RobotMap.BACK_RIGHT_WHEEL_MOTOR, RobotMap.BACK_RIGHT_WHEEL_ENCODER);
-	public static final Motor frontLeftWheel = new Motor("frontLeftWheel", RobotMap.FRONT_LEFT_WHEEL_MOTOR);
-	public static final Motor frontRightWheel = new Motor("frontRightWheel", RobotMap.FRONT_RIGHT_WHEEL_MOTOR);
-	public static final Motor backLeftWheel = new Motor("backLeftWheel", RobotMap.BACK_LEFT_WHEEL_MOTOR);
-	public static final Motor backRightWheel = new Motor("backRightWheel", RobotMap.BACK_RIGHT_WHEEL_MOTOR);
-	public static final Chassis2015 chassis = new Chassis2015(frontLeftWheel, frontRightWheel, backLeftWheel, backRightWheel);
+	public static Motor frontLeftWheel;
+	public static Motor frontRightWheel;
+	public static Motor backLeftWheel;
+	public static Motor backRightWheel;
+	public static Chassis2015 chassis;
 	// Initialize winch
-	public static final Winch winch = new Winch(RobotMap.WINCH_MOTOR, RobotMap.WINCH_ENCODER);
+	public static Winch winch;
 	// Initialize grabber and its limit switches
-	public static final LimitSwitchSystem limitSwitches = new LimitSwitchSystem(RobotMap.RIGHT_INNER_SWITCH, RobotMap.LEFT_INNER_SWITCH, RobotMap.RIGHT_OUTER_SWITCH, RobotMap.LEFT_OUTER_SWITCH);
-	public static final Grabber grabber = new Grabber(RobotMap.GRABBER_MOTOR, limitSwitches);
+	public static LimitSwitchSystem limitSwitches;
+	public static Grabber grabber;
 	// Initialize LIDAR
-	public static final LIDAR lidar = new LIDAR();
+	public static LIDAR lidar;
+	
+	public RobotMap() {
+		FRONT_LEFT_WHEEL_MOTOR = new VictorSP(0);
+		FRONT_RIGHT_WHEEL_MOTOR = new VictorSP(1);
+		BACK_LEFT_WHEEL_MOTOR = new VictorSP(2);
+		BACK_RIGHT_WHEEL_MOTOR = new VictorSP(3);
+		WINCH_MOTOR = new Talon(4);
+		GRABBER_MOTOR = new Talon(5);
+		RIGHT_INNER_SWITCH = new DigitalInput(6);
+		LEFT_INNER_SWITCH = new DigitalInput(7);
+		RIGHT_OUTER_SWITCH = new DigitalInput(8);
+		LEFT_OUTER_SWITCH = new DigitalInput(9);
+		FRONT_LEFT_WHEEL_ENCODER = new Encoder(1, 10);
+		FRONT_RIGHT_WHEEL_ENCODER = new Encoder(2, 11);
+		BACK_LEFT_WHEEL_ENCODER = new Encoder(3, 12);
+		BACK_RIGHT_WHEEL_ENCODER = new Encoder(4, 13);
+		WINCH_ENCODER = new Encoder(0, 5);
+		IMU_SENSOR = new IMU();
+		frontLeftWheel = new Motor("frontLeftWheel", RobotMap.FRONT_LEFT_WHEEL_MOTOR);
+		frontRightWheel = new Motor("frontRightWheel", RobotMap.FRONT_RIGHT_WHEEL_MOTOR);
+		backLeftWheel = new Motor("backLeftWheel", RobotMap.BACK_LEFT_WHEEL_MOTOR);
+		backRightWheel = new Motor("backRightWheel", RobotMap.BACK_RIGHT_WHEEL_MOTOR);
+		chassis = new Chassis2015(frontLeftWheel, frontRightWheel, backLeftWheel, backRightWheel);
+		winch = new Winch(RobotMap.WINCH_MOTOR, RobotMap.WINCH_ENCODER);
+		limitSwitches = new LimitSwitchSystem(RobotMap.RIGHT_INNER_SWITCH, RobotMap.LEFT_INNER_SWITCH, RobotMap.RIGHT_OUTER_SWITCH, RobotMap.LEFT_OUTER_SWITCH);
+		grabber = new Grabber(RobotMap.GRABBER_MOTOR, limitSwitches);
+		lidar = new LIDAR();
+	}
 }

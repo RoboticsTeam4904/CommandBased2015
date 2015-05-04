@@ -1,8 +1,8 @@
-package org.usfirst.frc4904.cmdbased2015;
+package org.usfirst.frc4904.robot;
 
 
 import org.usfirst.frc4904.cmdbased.Driver;
-import org.usfirst.frc4904.cmdbased2015.commands.Kill;
+import org.usfirst.frc4904.robot.commands.Kill;
 
 public class Nathan extends Driver {
 	public Nathan() {

@@ -1,8 +1,8 @@
-package org.usfirst.frc4904.cmdbased2015.commands;
+package org.usfirst.frc4904.robot.commands;
 
 
 import org.usfirst.frc4904.cmdbased.commands.ChassisIdle;
-import org.usfirst.frc4904.cmdbased2015.RobotMap;
+import org.usfirst.frc4904.robot.RobotMap;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 public class Kill extends CommandGroup {
