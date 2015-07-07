@@ -2,10 +2,10 @@ package org.usfirst.frc4904.robot.subsystems;
 
 
 import org.usfirst.frc4904.cmdbased.commands.ChassisIdle;
-import org.usfirst.frc4904.cmdbased.subsystems.Chassis;
 import org.usfirst.frc4904.cmdbased.subsystems.Motor;
+import org.usfirst.frc4904.cmdbased.subsystems.chassis.FourWheelChassis;
 
-public class Chassis2015 extends Chassis {
+public class Chassis2015 extends FourWheelChassis {
 	public Chassis2015(Motor frontLeftWheel, Motor frontRightWheel, Motor backLeftWheel, Motor backRightWheel) {
 		super("MecanumChassis", frontLeftWheel, frontRightWheel, backLeftWheel, backRightWheel);
 	}

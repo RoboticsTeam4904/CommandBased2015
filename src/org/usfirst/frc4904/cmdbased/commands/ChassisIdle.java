@@ -1,7 +1,7 @@
 package org.usfirst.frc4904.cmdbased.commands;
 
 
-import org.usfirst.frc4904.cmdbased.subsystems.Chassis;
+import org.usfirst.frc4904.cmdbased.subsystems.chassis.Chassis;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 public class ChassisIdle extends CommandGroup {
@@ -11,10 +11,6 @@ public class ChassisIdle extends CommandGroup {
 		super("ChassisIdle");
 		this.chassis = chassis;
 		setInterruptible(true); // default command
-		addParallel(new MotorIdle(chassis.frontLeftWheel));
-		addParallel(new MotorIdle(chassis.frontRightWheel));
-		addParallel(new MotorIdle(chassis.backLeftWheel));
-		addParallel(new MotorIdle(chassis.backRightWheel));
 	}
 	
 	public void initialize() {

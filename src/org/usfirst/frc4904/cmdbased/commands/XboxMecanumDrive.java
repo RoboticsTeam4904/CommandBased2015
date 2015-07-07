@@ -3,17 +3,17 @@ package org.usfirst.frc4904.cmdbased.commands;
 
 import org.usfirst.frc4904.cmdbased.custom.MecanumHelper;
 import org.usfirst.frc4904.cmdbased.custom.XboxController;
-import org.usfirst.frc4904.cmdbased.subsystems.Chassis;
+import org.usfirst.frc4904.cmdbased.subsystems.chassis.FourWheelChassis;
 import edu.wpi.first.wpilibj.command.Command;
 
-public class XboxDrive extends Command {
-	private final Chassis chassis;
+public class XboxMecanumDrive extends Command {
+	private final FourWheelChassis chassis;
 	private final XboxController xbox;
 	private final double xScale;
 	private final double yScale;
 	private final double turnScale;
 	
-	public XboxDrive(Chassis chassis, XboxController xbox, double xScale, double yScale, double turnScale) {
+	public XboxMecanumDrive(FourWheelChassis chassis, XboxController xbox, double xScale, double yScale, double turnScale) {
 		super("XboxDrive");
 		this.chassis = chassis;
 		this.xbox = xbox;
@@ -35,7 +35,7 @@ public class XboxDrive extends Command {
 		double angle = data[1];
 		double turnSpeed = xbox.rightStick.getX() * turnScale;
 		// Commands
-		(new ChassisDrive(chassis, speed, angle, turnSpeed)).start();
+		(new MecanumDrive(chassis, speed, angle, turnSpeed)).start();
 	}
 	
 	protected void end() {}

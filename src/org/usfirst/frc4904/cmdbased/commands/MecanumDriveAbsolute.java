@@ -3,13 +3,13 @@ package org.usfirst.frc4904.cmdbased.commands;
 
 import org.usfirst.frc4904.cmdbased.custom.Gyro;
 import org.usfirst.frc4904.cmdbased.custom.MecanumHelper;
-import org.usfirst.frc4904.cmdbased.subsystems.Chassis;
+import org.usfirst.frc4904.cmdbased.subsystems.chassis.FourWheelChassis;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
-public class ChassisDriveAbsolute extends CommandGroup {
-	private final Chassis chassis;
+public class MecanumDriveAbsolute extends CommandGroup {
+	private final FourWheelChassis chassis;
 	
-	public ChassisDriveAbsolute(Chassis chassis, Gyro imu, double speed, double angle, double turnSpeed) {
+	public MecanumDriveAbsolute(FourWheelChassis chassis, Gyro imu, double speed, double angle, double turnSpeed) {
 		super("ChassisDriveAbsolute");
 		this.chassis = chassis;
 		// Calculations (defines output variables for verbosity)
@@ -26,8 +26,8 @@ public class ChassisDriveAbsolute extends CommandGroup {
 		addParallel(new MotorSpin(chassis.backRightWheel, backRight));
 	}
 	
-	public ChassisDriveAbsolute(Chassis chassis, Gyro imu, double speed, double angle) {
-		new ChassisDriveAbsolute(chassis, imu, speed, angle, 0);
+	public MecanumDriveAbsolute(FourWheelChassis chassis, Gyro imu, double speed, double angle) {
+		new MecanumDriveAbsolute(chassis, imu, speed, angle, 0);
 		this.chassis = chassis;
 	}
 	

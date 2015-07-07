@@ -2,13 +2,13 @@ package org.usfirst.frc4904.cmdbased.commands;
 
 
 import org.usfirst.frc4904.cmdbased.custom.MecanumHelper;
-import org.usfirst.frc4904.cmdbased.subsystems.Chassis;
+import org.usfirst.frc4904.cmdbased.subsystems.chassis.FourWheelChassis;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
-public class ChassisDrive extends CommandGroup {
-	private final Chassis chassis;
+public class MecanumDrive extends CommandGroup {
+	private final FourWheelChassis chassis;
 	
-	public ChassisDrive(Chassis chassis, double speed, double angle, double turnSpeed) {
+	public MecanumDrive(FourWheelChassis chassis, double speed, double angle, double turnSpeed) {
 		super("ChassisDrive");
 		this.chassis = chassis;
 		// Calclulations (defines output variables for verbosity)
@@ -24,8 +24,8 @@ public class ChassisDrive extends CommandGroup {
 		addParallel(new MotorSpin(chassis.backRightWheel, backRight));
 	}
 	
-	public ChassisDrive(Chassis chassis, double speed, double angle) {
-		new ChassisDrive(chassis, speed, angle, 0);
+	public MecanumDrive(FourWheelChassis chassis, double speed, double angle) {
+		new MecanumDrive(chassis, speed, angle, 0);
 		this.chassis = chassis;
 	}
 	
