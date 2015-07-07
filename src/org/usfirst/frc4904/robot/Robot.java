@@ -8,8 +8,8 @@ package org.usfirst.frc4904.robot;
 
 
 import org.usfirst.frc4904.cmdbased.CommandRobotBase;
-import org.usfirst.frc4904.cmdbased.commands.ChassisIdle;
 import org.usfirst.frc4904.cmdbased.commands.XboxMecanumDrive;
+import org.usfirst.frc4904.cmdbased.commands.chassis.ChassisIdle;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 

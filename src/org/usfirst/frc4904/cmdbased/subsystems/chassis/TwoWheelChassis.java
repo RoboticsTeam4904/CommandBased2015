@@ -13,4 +13,8 @@ public abstract class TwoWheelChassis extends Chassis {
 		this.rightWheel = rightWheel;
 		this.numberWheels = 2;
 	}
+	
+	public Motor[] getMotors() {
+		return new Motor[] {leftWheel, rightWheel};
+	}
 }

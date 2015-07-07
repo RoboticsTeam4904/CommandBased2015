@@ -17,4 +17,8 @@ public abstract class FourWheelChassis extends Chassis {
 		this.backRightWheel = backRightWheel;
 		this.numberWheels = 4;
 	}
+	
+	public Motor[] getMotors() {
+		return new Motor[] {frontLeftWheel, frontRightWheel, backLeftWheel, backRightWheel};
+	}
 }

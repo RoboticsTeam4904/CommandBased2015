@@ -1,7 +1,7 @@
 package org.usfirst.frc4904.robot.subsystems;
 
 
-import org.usfirst.frc4904.cmdbased.commands.ChassisIdle;
+import org.usfirst.frc4904.cmdbased.commands.chassis.ChassisIdle;
 import org.usfirst.frc4904.cmdbased.subsystems.Motor;
 import org.usfirst.frc4904.cmdbased.subsystems.chassis.FourWheelChassis;
 

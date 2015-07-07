@@ -1,4 +1,4 @@
-package org.usfirst.frc4904.cmdbased.commands;
+package org.usfirst.frc4904.cmdbased.commands.chassis;
 
 
 import org.usfirst.frc4904.cmdbased.custom.MecanumHelper;
