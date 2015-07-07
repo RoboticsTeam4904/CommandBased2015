@@ -1,21 +1,19 @@
-package org.usfirst.frc4904.cmdbased.commands.chassis;
+package org.usfirst.frc4904.cmdbased.commands.chassis.mecanum;
 
 
 import org.usfirst.frc4904.cmdbased.commands.MotorSpin;
-import org.usfirst.frc4904.cmdbased.custom.Gyro;
 import org.usfirst.frc4904.cmdbased.custom.MecanumHelper;
 import org.usfirst.frc4904.cmdbased.subsystems.chassis.FourWheelChassis;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
-public class MecanumDriveAbsolute extends CommandGroup {
+public class MecanumDrive extends CommandGroup {
 	private final FourWheelChassis chassis;
 	
-	public MecanumDriveAbsolute(FourWheelChassis chassis, Gyro imu, double speed, double angle, double turnSpeed) {
-		super("ChassisDriveAbsolute");
+	public MecanumDrive(FourWheelChassis chassis, double speed, double angle, double turnSpeed) {
+		super("ChassisDrive");
 		this.chassis = chassis;
-		// Calculations (defines output variables for verbosity)
-		double angleOffset = imu.getYaw();
-		double[] speeds = MecanumHelper.calculateWheels(speed, angle - angleOffset, turnSpeed);
+		// Calclulations (defines output variables for verbosity)
+		double[] speeds = MecanumHelper.calculateWheels(speed, angle, turnSpeed);
 		double frontLeft = speeds[0];
 		double frontRight = speeds[1];
 		double backLeft = speeds[2];
@@ -27,8 +25,8 @@ public class MecanumDriveAbsolute extends CommandGroup {
 		addParallel(new MotorSpin(chassis.backRightWheel, backRight));
 	}
 	
-	public MecanumDriveAbsolute(FourWheelChassis chassis, Gyro imu, double speed, double angle) {
-		new MecanumDriveAbsolute(chassis, imu, speed, angle, 0);
+	public MecanumDrive(FourWheelChassis chassis, double speed, double angle) {
+		new MecanumDrive(chassis, speed, angle, 0);
 		this.chassis = chassis;
 	}
 	
