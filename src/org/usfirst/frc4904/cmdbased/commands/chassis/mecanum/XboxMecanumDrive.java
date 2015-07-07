@@ -1,7 +1,6 @@
-package org.usfirst.frc4904.cmdbased.commands;
+package org.usfirst.frc4904.cmdbased.commands.chassis.mecanum;
 
 
-import org.usfirst.frc4904.cmdbased.commands.chassis.mecanum.MecanumDrive;
 import org.usfirst.frc4904.cmdbased.custom.MecanumHelper;
 import org.usfirst.frc4904.cmdbased.custom.XboxController;
 import org.usfirst.frc4904.cmdbased.subsystems.chassis.FourWheelChassis;
