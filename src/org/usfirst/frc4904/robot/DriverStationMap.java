@@ -1,7 +1,7 @@
 package org.usfirst.frc4904.robot;
 
 
-import org.usfirst.frc4904.cmdbased.custom.XboxController;
+import org.usfirst.frc4904.cmdbased.custom.controllers.CustomXbox;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -18,7 +18,7 @@ public class DriverStationMap {
 	public static final double XBOX_MINIMUM_THRESHOLD = 0.1;
 	// *** DRIVER *** //
 	// Initialize driver Xbox controller
-	public static XboxController xbox;
+	public static CustomXbox xbox;
 	// *** OPERATOR *** //
 	// Initialize operator joystick
 	public static Joystick stick;
@@ -37,7 +37,7 @@ public class DriverStationMap {
 	public static Button button12;
 	
 	public DriverStationMap() {
-		xbox = new XboxController(XBOX_CONTROLLER_PORT);
+		xbox = new CustomXbox(XBOX_CONTROLLER_PORT);
 		stick = new Joystick(JOYSTICK_PORT);
 		button1 = new JoystickButton(stick, 1);
 		button2 = new JoystickButton(stick, 2);

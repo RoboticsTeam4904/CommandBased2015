@@ -9,7 +9,7 @@ package org.usfirst.frc4904.robot;
 
 import org.usfirst.frc4904.cmdbased.CommandRobotBase;
 import org.usfirst.frc4904.cmdbased.commands.chassis.ChassisIdle;
-import org.usfirst.frc4904.cmdbased.commands.chassis.mecanum.XboxMecanumDrive;
+import org.usfirst.frc4904.cmdbased.commands.chassis.ChassisMove;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
@@ -65,7 +65,7 @@ public class Robot extends CommandRobotBase {
 		if (autonomousCommand != null) {
 			autonomousCommand.cancel();
 		}
-		teleopCommand = new XboxMecanumDrive(RobotMap.chassis, DriverStationMap.xbox, 1, 1, 1);
+		teleopCommand = new ChassisMove(RobotMap.chassis.getMotors(), RobotMap.chassis, DriverStationMap.xbox);
 		teleopCommand.start();
 	}
 	

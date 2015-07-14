@@ -1,4 +1,4 @@
-package org.usfirst.frc4904.cmdbased.custom;
+package org.usfirst.frc4904.cmdbased.custom.controllers;
 
 
 import edu.wpi.first.wpilibj.GenericHID;

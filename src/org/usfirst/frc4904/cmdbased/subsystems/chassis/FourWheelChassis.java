@@ -16,9 +16,16 @@ public abstract class FourWheelChassis extends Chassis {
 		this.backLeftWheel = backLeftWheel;
 		this.backRightWheel = backRightWheel;
 		this.numberWheels = 4;
+		// Left then right then forward then backward
+		motorSpeeds = new double[4];
 	}
 	
 	public Motor[] getMotors() {
 		return new Motor[] {frontLeftWheel, frontRightWheel, backLeftWheel, backRightWheel};
+	}
+	
+	// We assume you want to go forward while turning
+	public void move(double speed, double turnSpeed) {
+		move2dp(0.00, speed, turnSpeed);
 	}
 }

@@ -16,4 +16,12 @@ public class SwerveChassis extends FourWheelChassis {
 		this.backLeftWheelSwerve = backLeftWheelSwerve;
 		this.backRightWheelSwerve = backRightWheelSwerve;
 	}
+	
+	public void move2dp(double xSpeed, double ySpeed, double turnSpeed) {
+		// TODO Auto-generated method stub
+	}
+	
+	public void move2dc(double speed, double angle, double turnSpeed) {
+		// TODO Auto-generated method stub
+	}
 }
