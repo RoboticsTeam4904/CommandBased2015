@@ -4,7 +4,16 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="lib" path="lib/NetworkTables.jar"/>
 	<classpathentry kind="lib" path="lib/WPILib.jar"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/CommandBasedStandard"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/LogKitten"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/LogKitten">
+		<attributes>
+			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="/home/carter/Documents/personal/Robotics/LogKitten"/>
+		</attributes>
+		<accessrules>
+			<accessrule kind="accessible" pattern="***"/>
+			<accessrule kind="accessible" pattern="**"/>
+			<accessrule kind="accessible" pattern="*"/>
+		</accessrules>
+	</classpathentry>
+	<classpathentry kind="lib" path="lib/CommandBasedStandard.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
