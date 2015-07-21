@@ -1,9 +1,10 @@
 package org.usfirst.frc4904.cmdbased.custom;
 
 
+import org.usfirst.frc4904.cmdbased.InPipable;
 import edu.wpi.first.wpilibj.PIDSource;
 
-public interface Gyro extends PIDSource {
+public interface Gyro extends PIDSource, InPipable {
 	/**
 	 * Zero the yaw, pitch, and roll.
 	 * Sets the current angles received by the Gyro to the "zero" angles,
@@ -68,4 +69,11 @@ public interface Gyro extends PIDSource {
 	 * @return double roll
 	 */
 	public double getTrueRoll();
+	
+	/**
+	 * This should return the most useful gyro data
+	 * 
+	 * @return useful data
+	 */
+	public double[] readPipe();
 }

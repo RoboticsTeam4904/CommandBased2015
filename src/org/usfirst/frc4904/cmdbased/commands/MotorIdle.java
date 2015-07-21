@@ -18,7 +18,9 @@ public class MotorIdle extends Command {
 		motor.set(0);
 	}
 	
-	protected void execute() {}
+	protected void execute() {
+		motor.set(0);
+	}
 	
 	protected void end() {}
 	

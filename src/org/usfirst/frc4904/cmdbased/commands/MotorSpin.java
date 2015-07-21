@@ -19,10 +19,21 @@ public class MotorSpin extends Command implements OutPipable {
 		requires(motor);
 	}
 	
+	/**
+	 * The motor pipe is set to control the speed of the motor
+	 */
 	public void writePipe(double[] data) {
 		speed = data[0];
 	}
 	
+	/**
+	 * Motors can only spin, so there are no modes
+	 */
+	public void setPipe(int mode) {}
+	
+	/**
+	 * Spins the motor at the speed set by writePipe
+	 */
 	protected void execute() {
 		motor.set(speed);
 	}
