@@ -7,10 +7,10 @@ import edu.wpi.first.wpilibj.command.Command;
 public class GrabberOpen extends Command {
 	public GrabberOpen() {
 		super("GrabberOpen");
+		requires(RobotMap.grabber);
 	}
 	
 	protected void initialize() {
-		requires(RobotMap.grabber);
 		RobotMap.grabber.set(RobotMap.GRABBER_OPEN_SPEED);
 	}
 	

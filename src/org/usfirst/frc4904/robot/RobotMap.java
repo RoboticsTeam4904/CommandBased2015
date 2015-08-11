@@ -3,6 +3,7 @@ package org.usfirst.frc4904.robot;
 
 import org.usfirst.frc4904.cmdbased.custom.LIDAR;
 import org.usfirst.frc4904.cmdbased.subsystems.Motor;
+import org.usfirst.frc4904.cmdbased.subsystems.chassis.MecanumChassis;
 import org.usfirst.frc4904.robot.custom.IMU;
 import org.usfirst.frc4904.robot.subsystems.Chassis2015;
 import org.usfirst.frc4904.robot.subsystems.Grabber;
@@ -77,7 +78,7 @@ public class RobotMap {
 	public static Motor frontRightWheel;
 	public static Motor backLeftWheel;
 	public static Motor backRightWheel;
-	public static Chassis2015 chassis;
+	public static MecanumChassis chassis;
 	// Initialize winch
 	public static Winch winch;
 	// Initialize grabber and its limit switches

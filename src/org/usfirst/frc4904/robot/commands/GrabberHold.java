@@ -7,11 +7,11 @@ import edu.wpi.first.wpilibj.command.Command;
 public class GrabberHold extends Command {
 	public GrabberHold() {
 		super("GrabberHold");
+		requires(RobotMap.grabber);
+		setInterruptible(true);
 	}
 	
 	protected void initialize() {
-		requires(RobotMap.grabber);
-		setInterruptible(true);
 		RobotMap.grabber.set(RobotMap.GRABBER_HOLD_SPEED);
 	}
 	

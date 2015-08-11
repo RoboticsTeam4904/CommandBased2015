@@ -7,11 +7,11 @@ import edu.wpi.first.wpilibj.command.Command;
 public class GrabberIdle extends Command {
 	public GrabberIdle() {
 		super("GrabberIdle");
+		requires(RobotMap.grabber);
+		setInterruptible(true);
 	}
 	
 	protected void initialize() {
-		requires(RobotMap.grabber);
-		setInterruptible(true);
 		RobotMap.grabber.set(RobotMap.GRABBER_IDLE_SPEED);
 	}
 	

@@ -7,10 +7,10 @@ import edu.wpi.first.wpilibj.command.Command;
 public class WinchIdle extends Command {
 	public WinchIdle() {
 		super("WinchIdle");
+		requires(RobotMap.winch);
 	}
 	
 	protected void initialize() {
-		requires(RobotMap.winch);
 		RobotMap.winch.disable();
 	}
 	

@@ -32,7 +32,7 @@ public class Robot extends CommandRobotBase {
 		super.robotInit();
 		System.out.println("CommandRobotBase init complete");
 		// Configure autonomous command chooser
-		autoChooser.addDefault(new ChassisIdle(RobotMap.chassis));
+		autoChooser.addDefault(new ChassisIdle(map.chassis));
 		// Configure driver command chooser
 		driverChooser.addDefault(new Nathan());
 		// Configure operator command chooser
@@ -65,7 +65,7 @@ public class Robot extends CommandRobotBase {
 		if (autonomousCommand != null) {
 			autonomousCommand.cancel();
 		}
-		teleopCommand = new ChassisMove(RobotMap.chassis.getMotors(), RobotMap.chassis, DriverStationMap.xbox);
+		teleopCommand = new ChassisMove(RobotMap.chassis, DriverStationMap.xbox);
 		teleopCommand.start();
 	}
 	
@@ -74,7 +74,6 @@ public class Robot extends CommandRobotBase {
 	 */
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
-		System.out.println(teleopCommand.isRunning());
 	}
 	
 	/**
