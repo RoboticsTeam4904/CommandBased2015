@@ -60,6 +60,8 @@ public class MecanumChassis extends FourWheelChassis {
 		public static double[] cartesianToPolar(double x, double y) {
 			double speed = Math.sqrt(x * x + y * y);
 			double angle = Math.atan2(y, x);
+			// atan2 rotated 45* counterclockwise, still not sure why
+			angle -= Math.PI / 4.0;
 			return new double[] {speed, angle};
 		}
 	}
