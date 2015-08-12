@@ -2,16 +2,22 @@ package org.usfirst.frc4904.cmdbased.commands;
 
 
 import org.usfirst.frc4904.cmdbased.OutPipable;
-import org.usfirst.frc4904.cmdbased.subsystems.Motor;
 import org.usfirst.frc4904.logkitten.LogKitten;
+import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class MotorSpin extends Command implements OutPipable {
-	private final Motor motor;
+	private final SpeedController motor;
 	private double speed;
 	private final LogKitten logger;
 	
-	public MotorSpin(Motor motor) {
+	/**
+	 * This command drives the motor at a variable speed via a pipe
+	 * 
+	 * @param motor
+	 */
+	public <A extends Subsystem & SpeedController> MotorSpin(A motor) {
 		super("WheelSpin");
 		this.motor = motor;
 		speed = 0;
