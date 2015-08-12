@@ -1,11 +1,12 @@
 package org.usfirst.frc4904.robot.subsystems;
 
 
+import org.usfirst.frc4904.cmdbased.subsystems.MotorSubsystem;
 import org.usfirst.frc4904.robot.commands.GrabberIdle;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
-public class Grabber extends Subsystem {
+public class Grabber extends Subsystem implements MotorSubsystem {
 	// Define locations of limit switches in array (for clarity)
 	private final LimitSwitchSystem limitSwitches;
 	private final SpeedController motor;

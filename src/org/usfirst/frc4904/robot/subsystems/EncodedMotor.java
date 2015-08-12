@@ -5,7 +5,7 @@ import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
 
-public class EncodedMotor extends PIDSubsystem {
+public class EncodedMotor extends PIDSubsystem implements SpeedController {
 	protected final SpeedController motor;
 	protected final Encoder encoder;
 	
@@ -13,7 +13,7 @@ public class EncodedMotor extends PIDSubsystem {
 		super(name, P, I, D);
 		this.motor = motor;
 		this.encoder = encoder;
-		getPIDController().setOutputRange(-1, 1);
+		setOutputRange(-1, 1);
 		getPIDController().setContinuous(false);
 	}
 	
@@ -25,5 +25,21 @@ public class EncodedMotor extends PIDSubsystem {
 	
 	protected void usePIDOutput(double speed) {
 		motor.set(speed);
+	}
+	
+	public void set(double speed) {
+		setSetpoint(speed);
+	}
+	
+	public void set(double speed, byte arg1) {
+		set(speed);
+	}
+	
+	public void pidWrite(double arg0) {
+		// TODO Auto-generated method stub
+	}
+	
+	public double get() {
+		return motor.get();
 	}
 }
