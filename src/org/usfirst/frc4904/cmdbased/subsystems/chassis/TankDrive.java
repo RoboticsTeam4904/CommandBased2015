@@ -3,9 +3,27 @@ package org.usfirst.frc4904.cmdbased.subsystems.chassis;
 
 import org.usfirst.frc4904.cmdbased.subsystems.Motor;
 
-public class TankDriveFourMotor extends FourWheelChassis {
-	public TankDriveFourMotor(String name, Motor frontLeftWheel, Motor frontRightWheel, Motor backLeftWheel, Motor backRightWheel) {
+public class TankDrive extends Chassis {
+	/**
+	 * 
+	 * @param name
+	 * @param frontLeftWheel
+	 * @param frontRightWheel
+	 * @param backLeftWheel
+	 * @param backRightWheel
+	 */
+	public TankDrive(String name, Motor frontLeftWheel, Motor frontRightWheel, Motor backLeftWheel, Motor backRightWheel) {
 		super(name, frontLeftWheel, frontRightWheel, backLeftWheel, backRightWheel);
+	}
+	
+	/**
+	 * 
+	 * @param name
+	 * @param leftWheel
+	 * @param rightWheel
+	 */
+	public TankDrive(String name, Motor leftWheel, Motor rightWheel) {
+		super(name, leftWheel, rightWheel);
 	}
 	
 	public int getControllerMode() {
@@ -42,4 +60,12 @@ public class TankDriveFourMotor extends FourWheelChassis {
 	public void move2dc(double xSpeed, double ySpeed, double turnSpeed) {
 		move2dp(xSpeed, 0.0, turnSpeed);
 	}
+	
+	/**
+	 * @param speed
+	 *        : speed in y direction (forward)
+	 * @param turnSpeed
+	 *        : rate of rotation around center
+	 */
+	public void move(double speed, double turnSpeed) {}
 }

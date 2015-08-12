@@ -3,7 +3,16 @@ package org.usfirst.frc4904.cmdbased.subsystems.chassis;
 
 import org.usfirst.frc4904.cmdbased.subsystems.Motor;
 
-public class MecanumChassis extends FourWheelChassis {
+public class MecanumChassis extends Chassis {
+	/**
+	 * Constructs a mecanum chassis
+	 * 
+	 * @param name
+	 * @param frontLeftWheel
+	 * @param frontRightWheel
+	 * @param backLeftWheel
+	 * @param backRightWheel
+	 */
 	public MecanumChassis(String name, Motor frontLeftWheel, Motor frontRightWheel, Motor backLeftWheel, Motor backRightWheel) {
 		super(name, frontLeftWheel, frontRightWheel, backLeftWheel, backRightWheel);
 	}
@@ -36,6 +45,16 @@ public class MecanumChassis extends FourWheelChassis {
 	public void move2dc(double xSpeed, double ySpeed, double turnSpeed) {
 		double[] polar = MecanumHelper.cartesianToPolar(xSpeed, ySpeed);
 		move2dp(polar[0], polar[1], turnSpeed);
+	}
+	
+	/**
+	 * @param speed
+	 *        : speed in the y direction
+	 * @param turnSpeed
+	 *        : rate of rotation around center
+	 */
+	public void move(double speed, double turnSpeed) {
+		move2dc(0.0, speed, turnSpeed);
 	}
 	
 	// At the moment, I see no reason that
