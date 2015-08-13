@@ -4,20 +4,22 @@ package org.usfirst.frc4904.cmdbased.custom.controllers;
 import org.usfirst.frc4904.cmdbased.InPipable;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
-public class CustomJoystick extends Joystick implements InPipable {
-	public SuperButton[] buttons = new SuperButton[12];
+public class CustomJoystick extends Joystick implements InPipable, Controller {
+	public final JoystickButton[] buttons = new JoystickButton[12];
 	public static final int X_AXIS = 0;
 	public static final int Y_AXIS = 1;
+	private static final int NUM_BUTTONS = 12;
 	private static final double moveThreshold = 0.05;
 	private final int port;
-	private static int NUM_BUTTONS = 12;
 	
-	protected CustomJoystick(int port) {
+	public CustomJoystick(int port) {
 		super(port);
 		this.port = port;
 		for (int i = 0; i < NUM_BUTTONS; i++) {
-			buttons[i] = new SuperButton(this, i + 1); // Initialize all the buttons. Remember the index is one less than the button num
+			buttons[i] = new JoystickButton(this, i + 1); // Initialize all the buttons. Remember the index is one less than the button num
 		}
 	}
 	
@@ -40,6 +42,10 @@ public class CustomJoystick extends Joystick implements InPipable {
 	 */
 	public double[] readPipe() {
 		return new double[] {this.getX(), this.getY(), this.getTwist()};
+	}
+	
+	public Button[] getButtons() {
+		return buttons;
 	}
 	
 	/**
