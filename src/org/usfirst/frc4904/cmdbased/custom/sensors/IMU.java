@@ -1,11 +1,12 @@
-package org.usfirst.frc4904.robot.custom;
+package org.usfirst.frc4904.cmdbased.custom.sensors;
 
 
 import java.util.Arrays;
+import org.usfirst.frc4904.cmdbased.InPipable;
 import edu.wpi.first.wpilibj.PIDSource;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-public class IMU extends NavX implements PIDSource {
+public class IMU extends NavX implements PIDSource, InPipable {
 	private double[] angles; // Angle 0 is perpendicular (yaw), Angle 1 is lateral (pitch), Angle 2 is longitudinal (roll)
 	private double[] lastAngles;
 	private double[] rate; // Same as above
@@ -59,11 +60,17 @@ public class IMU extends NavX implements PIDSource {
 		return System.currentTimeMillis();
 	}
 	
-	public boolean isGoingOverScoringPlatform() {
+	public boolean isTipping() {
 		return (angles[1] > GOING_OVER_PLATFORM_ANGLE && angles[1] < 360 - GOING_OVER_PLATFORM_ANGLE) || (angles[2] > GOING_OVER_PLATFORM_ANGLE && angles[2] < 360 - GOING_OVER_PLATFORM_ANGLE);
 	}
 	
 	public double pidGet() {
 		return angles[0];
 	}
+	
+	public double[] readPipe() {
+		return angles;
+	}
+	
+	public void setPipe(int mode) {}
 }
