@@ -13,6 +13,7 @@ public class CustomJoystick extends Joystick implements InPipable, Controller {
 	private static final int NUM_BUTTONS = 12;
 	private static final double moveThreshold = 0.05;
 	private final int port;
+	private int mode;
 	// Buttons
 	public static Button button1;
 	public static Button button2;
@@ -42,6 +43,7 @@ public class CustomJoystick extends Joystick implements InPipable, Controller {
 		button10 = new JoystickButton(this, 10);
 		button11 = new JoystickButton(this, 11);
 		button12 = new JoystickButton(this, 12);
+		mode = 0;
 	}
 	
 	public boolean active(int axis) {
@@ -62,7 +64,18 @@ public class CustomJoystick extends Joystick implements InPipable, Controller {
 	 * Read values from Joystick
 	 */
 	public double[] readPipe() {
-		return new double[] {this.getX(), this.getY(), this.getTwist()};
+		switch (mode) {
+			case 0:
+				return new double[] {this.getX(), this.getY(), this.getTwist()};
+			case 1:
+				return new double[] {this.getX()};
+			case 2:
+				return new double[] {this.getY()};
+			case 3:
+				return new double[] {this.getTwist()};
+			default:
+				return new double[] {this.getX(), this.getY(), this.getTwist()};
+		}
 	}
 	
 	public Button[] getButtons() {
@@ -71,6 +84,12 @@ public class CustomJoystick extends Joystick implements InPipable, Controller {
 	
 	/**
 	 * CustomJoystick always returns X, Y, twist
+	 * Mode 0: x, y, twist
+	 * Mode 1: x
+	 * Mode 2: y
+	 * Mode 3: twist
 	 */
-	public void setPipe(int mode) {}
+	public void setPipe(int mode) {
+		this.mode = mode;
+	}
 }

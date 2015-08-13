@@ -81,7 +81,7 @@ public class Robot extends CommandRobotBase {
 		if (teleopCommand != null) {
 			teleopCommand.cancel();
 		}
-		new Kill().start();
+		new Kill(new ChassisIdle(RobotMap.chassis)).start();
 	}
 	
 	public void disabledPeriodic() {}
