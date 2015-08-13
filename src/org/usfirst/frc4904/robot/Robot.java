@@ -8,6 +8,7 @@ package org.usfirst.frc4904.robot;
 
 
 import org.usfirst.frc4904.cmdbased.CommandRobotBase;
+import org.usfirst.frc4904.cmdbased.commands.Kill;
 import org.usfirst.frc4904.cmdbased.commands.chassis.ChassisIdle;
 import org.usfirst.frc4904.cmdbased.commands.chassis.ChassisMove;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -75,6 +76,15 @@ public class Robot extends CommandRobotBase {
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
 	}
+	
+	public void disabledInit() {
+		if (teleopCommand != null) {
+			teleopCommand.cancel();
+		}
+		new Kill().start();
+	}
+	
+	public void disabledPeriodic() {}
 	
 	/**
 	 * This function is called periodically during test mode
