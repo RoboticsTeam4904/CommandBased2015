@@ -22,6 +22,7 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
  * directory.
  */
 public class Robot extends CommandRobotBase {
+	// Even static objects need initializers
 	RobotMap map = new RobotMap();
 	DriverStationMap dsMap = new DriverStationMap();
 	

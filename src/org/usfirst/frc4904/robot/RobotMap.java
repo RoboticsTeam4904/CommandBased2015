@@ -26,11 +26,14 @@ public class RobotMap {
 	public static final double TOTE_GRAB_HEIGHT = 1; // 1 half-tote (lowest grabber can go)
 	public static final double CAN_GRAB_HEIGHT = 1; // TODO add actual value
 	// Winch constants
+	public static final double WINCH_MIN_HEIGHT = 0;
 	public static final double WINCH_MAX_HEIGHT = 9; // each level is half a tote height
 	public static final double WINCH_ERROR_MARGIN = 0.5; // in half-totes
 	public static final double WINCH_P = 1;
 	public static final double WINCH_I = 0.3;
 	public static final double WINCH_D = 0.3;
+	public static final double WINCH_MAX_TICKS = 355.00;
+	public static final double TICK_PER_HALFTOTE = WINCH_MAX_TICKS / WINCH_MAX_HEIGHT;
 	// Grabber constants
 	public static final double GRABBER_OPEN_SPEED = 0.5;
 	public static final double GRABBER_CLOSE_SPEED = -0.25;

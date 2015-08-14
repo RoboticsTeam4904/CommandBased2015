@@ -12,6 +12,7 @@ public class Winch extends EncodedMotor {
 	public Winch(Talon motor, Encoder encoder) {
 		super("Winch", RobotMap.WINCH_P, RobotMap.WINCH_I, RobotMap.WINCH_D, motor, encoder);
 		LiveWindow.addActuator("Winch", "PIDSubsystem Controller", getPIDController());
+		setInputRange(RobotMap.WINCH_MIN_HEIGHT * RobotMap.TICK_PER_HALFTOTE, RobotMap.WINCH_MAX_HEIGHT * RobotMap.TICK_PER_HALFTOTE);
 	}
 	
 	protected void initDefaultCommand() {
@@ -25,6 +26,10 @@ public class Winch extends EncodedMotor {
 	
 	protected void usePIDOutput(double speed) {
 		motor.set(speed);
+	}
+	
+	public void setHeight(double height) {
+		setSetpoint(height);
 	}
 	
 	public void disable() {
