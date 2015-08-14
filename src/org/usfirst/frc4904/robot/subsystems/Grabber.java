@@ -1,24 +1,21 @@
 package org.usfirst.frc4904.robot.subsystems;
 
 
-import org.usfirst.frc4904.cmdbased.subsystems.MotorSubsystem;
-import org.usfirst.frc4904.robot.commands.GrabberIdle;
+import org.usfirst.frc4904.cmdbased.commands.motor.MotorIdle;
+import org.usfirst.frc4904.cmdbased.subsystems.motor.Motor;
 import edu.wpi.first.wpilibj.SpeedController;
-import edu.wpi.first.wpilibj.command.Subsystem;
 
-public class Grabber extends Subsystem implements MotorSubsystem {
+public class Grabber extends Motor {
 	// Define locations of limit switches in array (for clarity)
 	private final LimitSwitchSystem limitSwitches;
-	private final SpeedController motor;
 	
 	public Grabber(SpeedController motor, LimitSwitchSystem limitSwitches) {
-		super("Grabber");
+		super("Grabber", motor);
 		this.limitSwitches = limitSwitches;
-		this.motor = motor;
 	}
 	
 	protected void initDefaultCommand() {
-		setDefaultCommand(new GrabberIdle());
+		setDefaultCommand(new MotorIdle(this));
 	}
 	
 	public void set(double value) {

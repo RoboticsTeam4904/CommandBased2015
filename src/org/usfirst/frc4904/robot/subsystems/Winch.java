@@ -1,6 +1,7 @@
 package org.usfirst.frc4904.robot.subsystems;
 
 
+import org.usfirst.frc4904.cmdbased.commands.motor.MotorIdle;
 import org.usfirst.frc4904.cmdbased.subsystems.motor.EncodedMotor;
 import org.usfirst.frc4904.robot.RobotMap;
 import edu.wpi.first.wpilibj.Encoder;
@@ -14,7 +15,7 @@ public class Winch extends EncodedMotor {
 	}
 	
 	protected void initDefaultCommand() {
-		// setDefaultCommand(new WinchIdle(this));
+		setDefaultCommand(new MotorIdle(this));
 		setAbsoluteTolerance(RobotMap.WINCH_ERROR_MARGIN);
 	}
 	
