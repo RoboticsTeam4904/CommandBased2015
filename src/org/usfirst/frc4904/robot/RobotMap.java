@@ -3,11 +3,11 @@ package org.usfirst.frc4904.robot;
 
 import org.usfirst.frc4904.cmdbased.custom.sensors.IMU;
 import org.usfirst.frc4904.cmdbased.custom.sensors.LIDAR;
-import org.usfirst.frc4904.cmdbased.custom.sensors.LimitSwitchSystem;
 import org.usfirst.frc4904.cmdbased.custom.sensors.PDP;
 import org.usfirst.frc4904.cmdbased.subsystems.motor.Motor;
 import org.usfirst.frc4904.robot.subsystems.Chassis2015;
 import org.usfirst.frc4904.robot.subsystems.Grabber;
+import org.usfirst.frc4904.robot.subsystems.LimitSwitchSystem;
 import org.usfirst.frc4904.robot.subsystems.Winch;
 import com.ni.vision.NIVision;
 import edu.wpi.first.wpilibj.DigitalInput;
@@ -88,7 +88,7 @@ public class RobotMap {
 	// Initialize winch
 	public static Winch winch;
 	// Initialize grabber and its limit switches
-	public static LimitSwitchSystem limitSwitches;
+	public static org.usfirst.frc4904.robot.subsystems.LimitSwitchSystem limitSwitches;
 	public static Grabber grabber;
 	// Initialize LIDAR
 	public static LIDAR lidar;
