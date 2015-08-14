@@ -7,7 +7,7 @@ import org.usfirst.frc4904.cmdbased.commands.chassis.ChassisIdle;
 
 public class Nathan extends Driver {
 	public Nathan() {
-		super("Nathan");
+		super("Nathan"); // Supernathan!
 		DriverStationMap.xbox.back.toggleWhenPressed(new Kill(new ChassisIdle(RobotMap.chassis)));
 	}
 }

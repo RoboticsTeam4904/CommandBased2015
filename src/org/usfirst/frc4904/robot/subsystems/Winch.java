@@ -1,7 +1,7 @@
 package org.usfirst.frc4904.robot.subsystems;
 
 
-import org.usfirst.frc4904.cmdbased.subsystems.EncodedMotor;
+import org.usfirst.frc4904.cmdbased.subsystems.motor.EncodedMotor;
 import org.usfirst.frc4904.robot.RobotMap;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Talon;

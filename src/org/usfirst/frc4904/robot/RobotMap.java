@@ -3,7 +3,7 @@ package org.usfirst.frc4904.robot;
 
 import org.usfirst.frc4904.cmdbased.custom.sensors.IMU;
 import org.usfirst.frc4904.cmdbased.custom.sensors.LIDAR;
-import org.usfirst.frc4904.cmdbased.subsystems.Motor;
+import org.usfirst.frc4904.cmdbased.subsystems.motor.Motor;
 import org.usfirst.frc4904.robot.subsystems.Chassis2015;
 import org.usfirst.frc4904.robot.subsystems.Grabber;
 import org.usfirst.frc4904.robot.subsystems.LimitSwitchSystem;

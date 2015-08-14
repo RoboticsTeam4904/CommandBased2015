@@ -6,7 +6,7 @@ import org.usfirst.frc4904.cmdbased.commands.motor.MotorInPipe;
 
 public class Nachi extends Operator {
 	public Nachi() {
-		super("Nachi");
+		super("Nachi"); // Supernachi!
 		// Set Joystick to output y axis via pipe (for manual adjustments)
 		DriverStationMap.stick.setPipe(2);
 		DriverStationMap.stick.button7.whileHeld(new MotorInPipe(RobotMap.winch, DriverStationMap.stick));
