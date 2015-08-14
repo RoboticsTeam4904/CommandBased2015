@@ -3,10 +3,11 @@ package org.usfirst.frc4904.robot;
 
 import org.usfirst.frc4904.cmdbased.custom.sensors.IMU;
 import org.usfirst.frc4904.cmdbased.custom.sensors.LIDAR;
+import org.usfirst.frc4904.cmdbased.custom.sensors.LimitSwitchSystem;
+import org.usfirst.frc4904.cmdbased.custom.sensors.PDP;
 import org.usfirst.frc4904.cmdbased.subsystems.motor.Motor;
 import org.usfirst.frc4904.robot.subsystems.Chassis2015;
 import org.usfirst.frc4904.robot.subsystems.Grabber;
-import org.usfirst.frc4904.robot.subsystems.LimitSwitchSystem;
 import org.usfirst.frc4904.robot.subsystems.Winch;
 import com.ni.vision.NIVision;
 import edu.wpi.first.wpilibj.DigitalInput;
@@ -39,6 +40,9 @@ public class RobotMap {
 	public static final double GRABBER_CLOSE_SPEED = -0.25;
 	public static final double GRABBER_HOLD_SPEED = -0.1;
 	public static final double GRABBER_IDLE_SPEED = 0;
+	public static final int GRABBER_PDP_PORT = 1; // TODO: check that this is true
+	public static final double GRABBER_MAX_AMPS = 8;
+	public static final double GRABBER_EMERGENCY_AMPS = 25;
 	// Camera constants
 	public static final NIVision.Range CAMERA_TOTE_HUE_RANGE = new NIVision.Range(101, 64); // Default hue range for yellow tote
 	public static final NIVision.Range CAMERA_TOTE_SAT_RANGE = new NIVision.Range(88, 255); // Default saturation range for yellow tote
@@ -88,6 +92,8 @@ public class RobotMap {
 	public static Grabber grabber;
 	// Initialize LIDAR
 	public static LIDAR lidar;
+	// Initializer PDP
+	public static PDP pdp;
 	
 	public RobotMap() {
 		FRONT_LEFT_WHEEL_MOTOR = new VictorSP(0);
@@ -115,5 +121,6 @@ public class RobotMap {
 		limitSwitches = new LimitSwitchSystem(RobotMap.RIGHT_INNER_SWITCH, RobotMap.LEFT_INNER_SWITCH, RobotMap.RIGHT_OUTER_SWITCH, RobotMap.LEFT_OUTER_SWITCH);
 		grabber = new Grabber(RobotMap.GRABBER_MOTOR, limitSwitches);
 		lidar = new LIDAR();
+		pdp = new PDP();
 	}
 }

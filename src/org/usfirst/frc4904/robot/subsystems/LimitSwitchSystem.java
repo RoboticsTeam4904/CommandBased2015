@@ -17,7 +17,7 @@ public class LimitSwitchSystem extends Subsystem {
 		this.rightOuterSwitch = rightOuterSwitch;
 		this.leftOuterSwitch = leftOuterSwitch;
 	}
-
+	
 	protected void initDefaultCommand() {}
 	
 	public boolean isInnerSwitchPressed() {

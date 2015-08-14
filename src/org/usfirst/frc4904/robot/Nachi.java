@@ -4,6 +4,7 @@ package org.usfirst.frc4904.robot;
 import org.usfirst.frc4904.cmdbased.Operator;
 import org.usfirst.frc4904.cmdbased.commands.motor.MotorInPipe;
 import org.usfirst.frc4904.robot.commands.SetWinch;
+import org.usfirst.frc4904.robot.commands.grabber.GrabberToggle;
 
 public class Nachi extends Operator {
 	public Nachi() {
@@ -17,6 +18,7 @@ public class Nachi extends Operator {
 		DriverStationMap.stick.button5.whenPressed(new SetWinch(RobotMap.winch, RobotMap.WINCH_MIN_HEIGHT * RobotMap.TICK_PER_HALFTOTE));
 		DriverStationMap.stick.button6.whenPressed(new SetWinch(RobotMap.winch, RobotMap.WINCH_MAX_HEIGHT * RobotMap.TICK_PER_HALFTOTE));
 		// Grabber commands
+		DriverStationMap.stick.button1.whenPressed(new GrabberToggle(RobotMap.grabber, RobotMap.pdp, RobotMap.limitSwitches));
 		/**
 		 * DriverStationMap.stick.button1.toggleWhenPressed(new GrabTote(RobotMap.chassis, RobotMap.grabber, RobotMap.lidar, RobotMap.winch));
 		 * DriverStationMap.stick.button2.toggleWhenPressed(new GrabCan(RobotMap.chassis, RobotMap.grabber, RobotMap.lidar, RobotMap.winch));
