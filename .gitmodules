@@ -1,3 +1,8 @@
+[submodule "src/org/usfirst/frc4904/--force"]
+	path = src/org/usfirst/frc4904/--force
+	url = git@github.com:RoboticsTeam4904/cmdbased.git
+	branch = master
 [submodule "src/org/usfirst/frc4904/cmdbased"]
 	path = src/org/usfirst/frc4904/cmdbased
 	url = git@github.com:RoboticsTeam4904/cmdbased.git
+	branch = master
