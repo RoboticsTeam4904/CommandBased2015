@@ -1,11 +1,14 @@
 package org.usfirst.frc4904.robot;
 
 
-import org.usfirst.frc4904.cmdbased.Operator;
+import org.usfirst.frc4904.cmdbased.humaninterface.Operator;
 
 public class Griffin extends Operator {
 	public Griffin() {
 		super("Griffin"); // Supergriffin!
+	}
+	
+	public void bindCommands() {
 		/**
 		 * DriverStationMap.stick.button10.toggleWhenPressed(new GrabTote(RobotMap.chassis, RobotMap.grabber, RobotMap.lidar, RobotMap.winch));
 		 * DriverStationMap.stick.button8.toggleWhenPressed(new GrabCan(RobotMap.chassis, RobotMap.grabber, RobotMap.lidar, RobotMap.winch));
