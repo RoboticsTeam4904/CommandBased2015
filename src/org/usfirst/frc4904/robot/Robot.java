@@ -8,9 +8,9 @@ package org.usfirst.frc4904.robot;
 
 
 import org.usfirst.frc4904.cmdbased.CommandRobotBase;
-import org.usfirst.frc4904.cmdbased.commands.Kill;
 import org.usfirst.frc4904.cmdbased.commands.chassis.ChassisIdle;
 import org.usfirst.frc4904.cmdbased.commands.chassis.ChassisMove;
+import org.usfirst.frc4904.cmdbased.commands.motor.MotorInPipe;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
@@ -69,6 +69,7 @@ public class Robot extends CommandRobotBase {
 		}
 		teleopCommand = new ChassisMove(RobotMap.chassis, DriverStationMap.xbox);
 		teleopCommand.start();
+		new MotorInPipe(RobotMap.winch, DriverStationMap.stick).start();
 	}
 	
 	/**
@@ -82,7 +83,7 @@ public class Robot extends CommandRobotBase {
 		if (teleopCommand != null) {
 			teleopCommand.cancel();
 		}
-		new Kill(new ChassisIdle(RobotMap.chassis)).start();
+		// new Kill(new ChassisIdle(RobotMap.chassis)).start();
 	}
 	
 	public void disabledPeriodic() {}
