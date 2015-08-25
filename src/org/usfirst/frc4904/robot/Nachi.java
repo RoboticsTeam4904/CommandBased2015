@@ -4,15 +4,21 @@ package org.usfirst.frc4904.robot;
 import org.usfirst.frc4904.cmdbased.commands.motor.MotorInPipe;
 import org.usfirst.frc4904.cmdbased.custom.controllers.Controller;
 import org.usfirst.frc4904.cmdbased.humaninterface.Operator;
+import org.usfirst.frc4904.logkitten.LogKitten;
 import org.usfirst.frc4904.robot.commands.SetWinch;
 import org.usfirst.frc4904.robot.commands.grabber.GrabberToggle;
 
 public class Nachi extends Operator {
+	private final LogKitten kitten;
+	
 	public Nachi() {
 		super("Nachi"); // Supernachi!
+		kitten = new LogKitten(LogKitten.LEVEL_DEBUG, LogKitten.LEVEL_DEBUG);
+		LogKitten.setPrintMute(true);
 	}
 	
 	public void bindCommands() {
+		kitten.d("Binding nachi", true);
 		// Set Joystick to output y axis via pipe (for manual adjustments)
 		DriverStationMap.stick.setPipe(Controller.PipeModes.Y);
 		DriverStationMap.stick.button7.toggleWhenPressed(new MotorInPipe(RobotMap.winch, DriverStationMap.stick));
