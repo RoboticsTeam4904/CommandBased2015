@@ -3,9 +3,9 @@ package org.usfirst.frc4904.robot.commands;
 
 import org.usfirst.frc4904.logkitten.LogKitten;
 import org.usfirst.frc4904.robot.subsystems.Winch;
-import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.command.CommandGroup;
 
-public class SetWinch extends Command {
+public class SetWinch extends CommandGroup {
 	private final Winch winch;
 	private final double height;
 	private final LogKitten kitten;
@@ -14,6 +14,7 @@ public class SetWinch extends Command {
 		super("SetWinch");
 		this.winch = winch;
 		this.height = height;
+		addSequential(new SetWinchPID(winch, true));
 		requires(winch);
 		setInterruptible(true);
 		kitten = new LogKitten(LogKitten.LEVEL_DEBUG, LogKitten.LEVEL_DEBUG);
