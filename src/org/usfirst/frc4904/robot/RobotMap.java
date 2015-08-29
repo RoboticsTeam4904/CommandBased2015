@@ -117,7 +117,7 @@ public class RobotMap {
 		backLeftWheel = new Motor("backLeftWheel", RobotMap.BACK_LEFT_WHEEL_MOTOR);
 		backRightWheel = new Motor("backRightWheel", RobotMap.BACK_RIGHT_WHEEL_MOTOR);
 		chassis = new Chassis2015(frontLeftWheel, frontRightWheel, backLeftWheel, backRightWheel);
-		winch = new Winch(RobotMap.WINCH_MOTOR, RobotMap.WINCH_ENCODER);
+		winch = new Winch(new Motor("WinchMotor", RobotMap.WINCH_MOTOR), RobotMap.WINCH_ENCODER);
 		limitSwitches = new LimitSwitchSystem(RobotMap.RIGHT_INNER_SWITCH, RobotMap.LEFT_INNER_SWITCH, RobotMap.RIGHT_OUTER_SWITCH, RobotMap.LEFT_OUTER_SWITCH);
 		grabber = new Grabber(RobotMap.GRABBER_MOTOR, limitSwitches);
 		lidar = new LIDAR();

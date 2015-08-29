@@ -17,18 +17,18 @@ public class SetWinch extends Command {
 		requires(winch);
 		setInterruptible(true);
 		kitten = new LogKitten(LogKitten.LEVEL_DEBUG, LogKitten.LEVEL_DEBUG);
-		kitten.d("created set winch", true);
+		kitten.v("created set winch");
 	}
 	
 	protected void initialize() {
 		winch.setHeight(height);
-		kitten.d("Initialized set winch with height " + Double.toString(height), true);
+		kitten.v("Initialized set winch with height " + Double.toString(height));
 	}
 	
 	protected void execute() {}
 	
 	protected void interrupted() {
-		kitten.w("winch was interrupted", true);
+		kitten.w("winch was interrupted");
 	}
 	
 	protected void end() {}
