@@ -68,6 +68,7 @@ public class Robot extends CommandRobotBase {
 		}
 		teleopCommand = new ChassisMove(RobotMap.chassis, DriverStationMap.xbox);
 		teleopCommand.start();
+		RobotMap.winch.enable();
 		// Bind commands
 		operatorChooser.getSelected().bindCommands();
 		driverChooser.getSelected().bindCommands();
@@ -84,6 +85,7 @@ public class Robot extends CommandRobotBase {
 		if (teleopCommand != null) {
 			teleopCommand.cancel();
 		}
+		RobotMap.winch.disable();
 	}
 	
 	public void disabledPeriodic() {}

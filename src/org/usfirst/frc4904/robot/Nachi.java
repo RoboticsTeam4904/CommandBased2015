@@ -1,9 +1,10 @@
 package org.usfirst.frc4904.robot;
 
 
-import org.usfirst.frc4904.cmdbased.commands.motor.MotorInPipe;
+import org.usfirst.frc4904.cmdbased.commands.CommandPipe;
 import org.usfirst.frc4904.cmdbased.custom.controllers.Controller;
 import org.usfirst.frc4904.cmdbased.humaninterface.Operator;
+import org.usfirst.frc4904.cmdbased.subsystems.motor.EncodedMotor;
 import org.usfirst.frc4904.logkitten.LogKitten;
 import org.usfirst.frc4904.robot.commands.SetWinch;
 import org.usfirst.frc4904.robot.commands.grabber.GrabberToggle;
@@ -21,10 +22,11 @@ public class Nachi extends Operator {
 		kitten.d("Binding nachi", true);
 		// Set Joystick to output y axis via pipe (for manual adjustments)
 		DriverStationMap.stick.setPipe(Controller.PipeModes.Y);
-		DriverStationMap.stick.button7.toggleWhenPressed(new MotorInPipe(RobotMap.winch, DriverStationMap.stick));
+		RobotMap.winch.setPipe(EncodedMotor.EncodedMotorMode.SET);
+		DriverStationMap.stick.button7.toggleWhenPressed(new CommandPipe(DriverStationMap.stick, RobotMap.winch));
 		// Winch PID commands
-		DriverStationMap.stick.button3.whenPressed(new SetWinch(RobotMap.winch, RobotMap.winch.getPosition() - RobotMap.TICK_PER_HALFTOTE));
-		DriverStationMap.stick.button4.whenPressed(new SetWinch(RobotMap.winch, RobotMap.winch.getPosition() + RobotMap.TICK_PER_HALFTOTE));
+		// DriverStationMap.stick.button3.whenPressed(new SetWinch(RobotMap.winch, RobotMap.winch.getPosition() - RobotMap.TICK_PER_HALFTOTE));
+		// DriverStationMap.stick.button4.whenPressed(new SetWinch(RobotMap.winch, RobotMap.winch.getPosition() + RobotMap.TICK_PER_HALFTOTE));
 		DriverStationMap.stick.button5.whenPressed(new SetWinch(RobotMap.winch, RobotMap.WINCH_MIN_HEIGHT * RobotMap.TICK_PER_HALFTOTE));
 		DriverStationMap.stick.button6.whenPressed(new SetWinch(RobotMap.winch, RobotMap.WINCH_MAX_HEIGHT * RobotMap.TICK_PER_HALFTOTE));
 		// Grabber commands

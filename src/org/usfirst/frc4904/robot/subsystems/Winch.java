@@ -24,23 +24,7 @@ public class Winch extends EncodedMotor {
 		return encoder.getDistance();
 	}
 	
-	protected void usePIDOutput(double speed) {
-		motor.set(speed);
-	}
-	
 	public void setHeight(double height) {
 		setSetpoint(height);
-	}
-	
-	public void disable() {
-		if (!getPIDController().isEnable()) {
-			getPIDController().disable();
-		}
-	}
-	
-	public void enable() {
-		if (getPIDController().isEnable()) {
-			getPIDController().enable();
-		}
 	}
 }

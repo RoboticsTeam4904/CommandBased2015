@@ -22,7 +22,7 @@ public class SetWinch extends Command {
 	
 	protected void initialize() {
 		winch.setHeight(height);
-		kitten.d("Initialized set winch", true);
+		kitten.d("Initialized set winch with height " + Double.toString(height), true);
 	}
 	
 	protected void execute() {}
