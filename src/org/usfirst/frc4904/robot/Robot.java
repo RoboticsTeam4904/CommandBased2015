@@ -39,7 +39,6 @@ public class Robot extends CommandRobotBase {
 		driverChooser.addDefault(new Nathan());
 		// Configure operator command chooser
 		operatorChooser.addDefault(new Nachi());
-		operatorChooser.addObject(new Griffin());
 		// Display choosers on SmartDashboard
 		displayChoosers();
 		SmartDashboard.putData(Scheduler.getInstance());
