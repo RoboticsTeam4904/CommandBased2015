@@ -17,7 +17,7 @@ public class Griffin extends Operator {
 		DriverStationMap.stick.setPipe(Controller.PipeModes.Y);
 		DriverStationMap.stick.button7.toggleWhenPressed(new MotorInPipe(RobotMap.winch, DriverStationMap.stick));
 		// Grabber commands
-		DriverStationMap.stick.button10.whenPressed(new GrabberToggle(RobotMap.grabber, RobotMap.pdp, RobotMap.limitSwitches));
+		DriverStationMap.stick.button10.whenPressed(new GrabberToggle(RobotMap.grabber, RobotMap.pdp));
 		// Winch automatic movement
 		DriverStationMap.stick.button3.whenPressed(new SetWinch(RobotMap.winch, RobotMap.winch.getPosition() - RobotMap.TICK_PER_HALFTOTE));
 		DriverStationMap.stick.button4.whenPressed(new SetWinch(RobotMap.winch, RobotMap.winch.getPosition() + RobotMap.TICK_PER_HALFTOTE));

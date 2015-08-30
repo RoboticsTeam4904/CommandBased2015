@@ -12,6 +12,7 @@ import org.usfirst.frc4904.cmdbased.commands.chassis.ChassisIdle;
 import org.usfirst.frc4904.cmdbased.commands.chassis.ChassisMove;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -41,6 +42,7 @@ public class Robot extends CommandRobotBase {
 		operatorChooser.addObject(new Griffin());
 		// Display choosers on SmartDashboard
 		displayChoosers();
+		SmartDashboard.putData(Scheduler.getInstance());
 	}
 	
 	public void autonomousInit() {

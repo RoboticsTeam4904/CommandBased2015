@@ -24,11 +24,7 @@ public class Grabber extends Motor {
 		}
 	}
 	
-	public boolean isInnerSwitchPressed() {
-		return limitSwitches.isInnerSwitchPressed();
-	}
-	
-	public boolean isOuterSwitchPressed() {
-		return limitSwitches.isOuterSwitchPressed();
+	public LimitSwitchSystem getSwitches() {
+		return limitSwitches;
 	}
 }

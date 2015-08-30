@@ -14,14 +14,14 @@ public abstract class GrabberCommand extends Command {
 	protected final LimitSwitchSystem limitSwitches;
 	protected final LogKitten logger;
 	
-	public GrabberCommand(String name, Grabber grabber, PDP pdp, LimitSwitchSystem limitSwitches) {
+	public GrabberCommand(String name, Grabber grabber, PDP pdp) {
 		super(name);
 		requires(grabber);
 		setInterruptible(true);
 		logger = new LogKitten(LogKitten.LEVEL_DEBUG, LogKitten.LEVEL_DEBUG);
 		this.grabber = grabber;
 		this.pdp = pdp;
-		this.limitSwitches = limitSwitches;
+		this.limitSwitches = grabber.getSwitches();
 	}
 	
 	protected void execute() {

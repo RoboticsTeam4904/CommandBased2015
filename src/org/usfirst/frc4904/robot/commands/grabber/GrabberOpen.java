@@ -4,11 +4,10 @@ package org.usfirst.frc4904.robot.commands.grabber;
 import org.usfirst.frc4904.cmdbased.custom.sensors.PDP;
 import org.usfirst.frc4904.robot.RobotMap;
 import org.usfirst.frc4904.robot.subsystems.Grabber;
-import org.usfirst.frc4904.robot.subsystems.LimitSwitchSystem;
 
 public class GrabberOpen extends GrabberCommand {
-	public GrabberOpen(Grabber grabber, PDP pdp, LimitSwitchSystem limitSwitches) {
-		super("GrabberOpen", grabber, pdp, limitSwitches);
+	public GrabberOpen(Grabber grabber, PDP pdp) {
+		super("GrabberOpen", grabber, pdp);
 	}
 	
 	protected void initialize() {
@@ -24,9 +23,9 @@ public class GrabberOpen extends GrabberCommand {
 	}
 	
 	protected boolean isFinished() {
-		if ((pdp.getCurrent(RobotMap.GRABBER_PDP_PORT) > RobotMap.GRABBER_MAX_AMPS) || limitSwitches.isInnerSwitchPressed()) {
+		if (pdp.getCurrent(RobotMap.GRABBER_PDP_PORT) > RobotMap.GRABBER_MAX_AMPS) {
 			logger.v("Grabber Open", true);
 		}
-		return (pdp.getCurrent(RobotMap.GRABBER_PDP_PORT) > RobotMap.GRABBER_MAX_AMPS) || limitSwitches.isOuterSwitchPressed();
+		return pdp.getCurrent(RobotMap.GRABBER_PDP_PORT) > RobotMap.GRABBER_MAX_AMPS;
 	}
 }

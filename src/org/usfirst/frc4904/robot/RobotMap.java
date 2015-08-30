@@ -1,6 +1,7 @@
 package org.usfirst.frc4904.robot;
 
 
+import org.usfirst.frc4904.cmdbased.custom.sensors.CustomLimitSwitch;
 import org.usfirst.frc4904.cmdbased.custom.sensors.IMU;
 import org.usfirst.frc4904.cmdbased.custom.sensors.LIDAR;
 import org.usfirst.frc4904.cmdbased.custom.sensors.PDP;
@@ -10,7 +11,6 @@ import org.usfirst.frc4904.robot.subsystems.Grabber;
 import org.usfirst.frc4904.robot.subsystems.LimitSwitchSystem;
 import org.usfirst.frc4904.robot.subsystems.Winch;
 import com.ni.vision.NIVision;
-import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.VictorSP;
@@ -62,10 +62,10 @@ public class RobotMap {
 	public static Talon WINCH_MOTOR;
 	public static Talon GRABBER_MOTOR;
 	// Limit switches
-	public static DigitalInput RIGHT_INNER_SWITCH;
-	public static DigitalInput LEFT_INNER_SWITCH;
-	public static DigitalInput RIGHT_OUTER_SWITCH;
-	public static DigitalInput LEFT_OUTER_SWITCH;
+	public static CustomLimitSwitch RIGHT_INNER_SWITCH;
+	public static CustomLimitSwitch LEFT_INNER_SWITCH;
+	public static CustomLimitSwitch RIGHT_OUTER_SWITCH;
+	public static CustomLimitSwitch LEFT_OUTER_SWITCH;
 	// Encoders
 	public static Encoder FRONT_LEFT_WHEEL_ENCODER;
 	public static Encoder FRONT_RIGHT_WHEEL_ENCODER;
@@ -102,10 +102,10 @@ public class RobotMap {
 		BACK_RIGHT_WHEEL_MOTOR = new VictorSP(3);
 		WINCH_MOTOR = new Talon(4);
 		GRABBER_MOTOR = new Talon(5);
-		RIGHT_INNER_SWITCH = new DigitalInput(6);
-		LEFT_INNER_SWITCH = new DigitalInput(7);
-		RIGHT_OUTER_SWITCH = new DigitalInput(8);
-		LEFT_OUTER_SWITCH = new DigitalInput(9);
+		RIGHT_INNER_SWITCH = new CustomLimitSwitch(6);
+		LEFT_INNER_SWITCH = new CustomLimitSwitch(7);
+		RIGHT_OUTER_SWITCH = new CustomLimitSwitch(8);
+		LEFT_OUTER_SWITCH = new CustomLimitSwitch(9);
 		FRONT_LEFT_WHEEL_ENCODER = new Encoder(1, 10);
 		FRONT_RIGHT_WHEEL_ENCODER = new Encoder(2, 11);
 		BACK_LEFT_WHEEL_ENCODER = new Encoder(3, 12);
