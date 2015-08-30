@@ -8,8 +8,10 @@ package org.usfirst.frc4904.robot;
 
 
 import org.usfirst.frc4904.cmdbased.CommandRobotBase;
+import org.usfirst.frc4904.cmdbased.commands.PDPLiveWindow;
 import org.usfirst.frc4904.cmdbased.commands.chassis.ChassisIdle;
 import org.usfirst.frc4904.cmdbased.commands.chassis.ChassisMove;
+import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -25,6 +27,7 @@ public class Robot extends CommandRobotBase {
 	// Even static objects need initializers
 	RobotMap map = new RobotMap();
 	DriverStationMap dsMap = new DriverStationMap();
+	Command grabberDisplay = new PDPLiveWindow(RobotMap.pdp, RobotMap.GRABBER_PDP_PORT);
 	
 	/**
 	 * This function is run when the robot is first started up and should be
@@ -39,7 +42,6 @@ public class Robot extends CommandRobotBase {
 		driverChooser.addDefault(new Nathan());
 		// Configure operator command chooser
 		operatorChooser.addDefault(new Nachi());
-		operatorChooser.addObject(new Griffin());
 		// Display choosers on SmartDashboard
 		displayChoosers();
 		SmartDashboard.putData(Scheduler.getInstance());
@@ -74,6 +76,7 @@ public class Robot extends CommandRobotBase {
 		// Bind commands
 		operatorChooser.getSelected().bindCommands();
 		driverChooser.getSelected().bindCommands();
+		grabberDisplay.start();
 	}
 	
 	/**
@@ -81,6 +84,7 @@ public class Robot extends CommandRobotBase {
 	 */
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
+		LiveWindow.run();
 	}
 	
 	public void disabledInit() {
