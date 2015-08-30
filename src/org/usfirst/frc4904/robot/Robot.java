@@ -43,6 +43,7 @@ public class Robot extends CommandRobotBase {
 		// Display choosers on SmartDashboard
 		displayChoosers();
 		SmartDashboard.putData(Scheduler.getInstance());
+		RobotMap.pdp.addLiveWindow();
 	}
 	
 	public void autonomousInit() {
