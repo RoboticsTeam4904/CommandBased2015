@@ -1,8 +1,8 @@
 package org.usfirst.frc4904.robot;
 
 
+import org.usfirst.frc4904.cmdbased.custom.XboxController;
 import org.usfirst.frc4904.cmdbased.custom.controllers.CustomJoystick;
-import org.usfirst.frc4904.cmdbased.custom.controllers.CustomXbox;
 
 public class DriverStationMap {
 	// *** CONSTANTS *** //
@@ -16,14 +16,14 @@ public class DriverStationMap {
 	public static final double XBOX_MINIMUM_THRESHOLD = 0.1;
 	// *** DRIVER *** //
 	// Initialize driver Xbox controller
-	public static CustomXbox xbox;
+	public static XboxController xbox;
 	// *** OPERATOR *** //
 	// Initialize operator joystick
 	public static CustomJoystick stick;
 	
 	// Initialize operator buttons
 	public DriverStationMap() {
-		xbox = new CustomXbox(XBOX_CONTROLLER_PORT);
+		xbox = new XboxController(XBOX_CONTROLLER_PORT);
 		stick = new CustomJoystick(JOYSTICK_PORT);
 		// Initialize driver Xbox controller and buttons
 		DriverStationMap.xbox.rightStick.setXDeadZone(DriverStationMap.XBOX_MINIMUM_THRESHOLD);

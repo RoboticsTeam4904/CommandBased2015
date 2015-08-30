@@ -1,7 +1,6 @@
 package org.usfirst.frc4904.robot;
 
 
-import org.usfirst.frc4904.cmdbased.custom.controllers.Controller;
 import org.usfirst.frc4904.cmdbased.humaninterface.Operator;
 import org.usfirst.frc4904.logkitten.LogKitten;
 import org.usfirst.frc4904.robot.commands.OverrideWinch;
@@ -20,7 +19,6 @@ public class Nachi extends Operator {
 	public void bindCommands() {
 		kitten.d("Binding nachi", true);
 		// Set Joystick to output y axis via pipe (for manual adjustments)
-		DriverStationMap.stick.setPipe(Controller.PipeModes.Y);
 		DriverStationMap.stick.button11.toggleWhenPressed(new OverrideWinch(RobotMap.winch, DriverStationMap.stick));
 		// Winch PID commands
 		// DriverStationMap.stick.button3.whenPressed(new SetWinch(RobotMap.winch, RobotMap.winch.getPosition() - RobotMap.TICK_PER_HALFTOTE));
