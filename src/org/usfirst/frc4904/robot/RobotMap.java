@@ -36,9 +36,9 @@ public class RobotMap {
 	public static final double WINCH_MAX_TICKS = 355.00;
 	public static final double TICK_PER_HALFTOTE = WINCH_MAX_TICKS / WINCH_MAX_HEIGHT;
 	// Grabber constants
-	public static final double GRABBER_OPEN_SPEED = 0.5;
-	public static final double GRABBER_CLOSE_SPEED = -0.25;
-	public static final double GRABBER_HOLD_SPEED = -0.1;
+	public static final double GRABBER_OPEN_SPEED = 0.3;
+	public static final double GRABBER_CLOSE_SPEED = -0.4;
+	public static final double GRABBER_HOLD_SPEED = -0.2;
 	public static final double GRABBER_IDLE_SPEED = 0;
 	public static final int GRABBER_PDP_PORT = 1; // TODO: check that this is true
 	public static final double GRABBER_MAX_AMPS = 8;

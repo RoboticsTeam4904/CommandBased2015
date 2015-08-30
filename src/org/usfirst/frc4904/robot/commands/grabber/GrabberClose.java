@@ -22,4 +22,11 @@ public class GrabberClose extends GrabberCommand {
 	protected void end() {
 		grabber.set(RobotMap.GRABBER_HOLD_SPEED);
 	}
+	
+	protected boolean isFinished() {
+		if ((pdp.getCurrent(RobotMap.GRABBER_PDP_PORT) > RobotMap.GRABBER_MAX_AMPS) || limitSwitches.isInnerSwitchPressed()) {
+			logger.v("Grabber Closed", true);
+		}
+		return (pdp.getCurrent(RobotMap.GRABBER_PDP_PORT) > RobotMap.GRABBER_MAX_AMPS) || limitSwitches.isInnerSwitchPressed();
+	}
 }

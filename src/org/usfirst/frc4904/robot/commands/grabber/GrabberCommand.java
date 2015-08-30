@@ -30,8 +30,4 @@ public abstract class GrabberCommand extends Command {
 			logger.v("Idling now", true);
 		}
 	}
-	
-	protected boolean isFinished() {
-		return (pdp.getCurrent(RobotMap.GRABBER_PDP_PORT) > RobotMap.GRABBER_MAX_AMPS) || limitSwitches.isInnerSwitchPressed() || limitSwitches.isOuterSwitchPressed(); // Regardless of what limit switch is pressed, stop the grabber
-	}
 }
