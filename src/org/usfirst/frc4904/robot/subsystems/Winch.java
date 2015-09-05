@@ -1,10 +1,10 @@
 package org.usfirst.frc4904.robot.subsystems;
 
 
-import org.usfirst.frc4904.cmdbased.commands.motor.MotorIdle;
-import org.usfirst.frc4904.cmdbased.subsystems.motor.EncodedMotor;
-import org.usfirst.frc4904.cmdbased.subsystems.motor.Motor;
 import org.usfirst.frc4904.robot.RobotMap;
+import org.usfirst.frc4904.standard.commands.motor.MotorIdle;
+import org.usfirst.frc4904.standard.subsystems.motor.EncodedMotor;
+import org.usfirst.frc4904.standard.subsystems.motor.Motor;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 

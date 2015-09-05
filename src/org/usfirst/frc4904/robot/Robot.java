@@ -7,9 +7,9 @@
 package org.usfirst.frc4904.robot;
 
 
-import org.usfirst.frc4904.cmdbased.CommandRobotBase;
-import org.usfirst.frc4904.cmdbased.commands.chassis.ChassisIdle;
-import org.usfirst.frc4904.cmdbased.commands.chassis.ChassisMove;
+import org.usfirst.frc4904.standard.CommandRobotBase;
+import org.usfirst.frc4904.standard.commands.chassis.ChassisIdle;
+import org.usfirst.frc4904.standard.commands.chassis.ChassisMove;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;

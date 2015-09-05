@@ -1,15 +1,15 @@
 package org.usfirst.frc4904.robot;
 
 
-import org.usfirst.frc4904.cmdbased.custom.sensors.CustomLimitSwitch;
-import org.usfirst.frc4904.cmdbased.custom.sensors.IMU;
-import org.usfirst.frc4904.cmdbased.custom.sensors.LIDAR;
-import org.usfirst.frc4904.cmdbased.custom.sensors.PDP;
-import org.usfirst.frc4904.cmdbased.subsystems.motor.Motor;
 import org.usfirst.frc4904.robot.subsystems.Chassis2015;
 import org.usfirst.frc4904.robot.subsystems.Grabber;
 import org.usfirst.frc4904.robot.subsystems.LimitSwitchSystem;
 import org.usfirst.frc4904.robot.subsystems.Winch;
+import org.usfirst.frc4904.standard.custom.sensors.CustomLimitSwitch;
+import org.usfirst.frc4904.standard.custom.sensors.IMU;
+import org.usfirst.frc4904.standard.custom.sensors.LIDAR;
+import org.usfirst.frc4904.standard.custom.sensors.PDP;
+import org.usfirst.frc4904.standard.subsystems.motor.Motor;
 import com.ni.vision.NIVision;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Talon;

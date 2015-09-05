@@ -1,7 +1,7 @@
 package org.usfirst.frc4904.robot.subsystems;
 
 
-import org.usfirst.frc4904.cmdbased.custom.sensors.CustomLimitSwitch;
+import org.usfirst.frc4904.standard.custom.sensors.CustomLimitSwitch;
 import edu.wpi.first.wpilibj.buttons.Button;
 
 public class LimitSwitchSystem extends Button {

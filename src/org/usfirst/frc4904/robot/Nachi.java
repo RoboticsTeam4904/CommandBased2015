@@ -1,14 +1,14 @@
 package org.usfirst.frc4904.robot;
 
 
-import org.usfirst.frc4904.cmdbased.commands.motor.MotorInPipe;
-import org.usfirst.frc4904.cmdbased.custom.controllers.Controller;
-import org.usfirst.frc4904.cmdbased.humaninterface.Operator;
 import org.usfirst.frc4904.logkitten.LogKitten;
 import org.usfirst.frc4904.robot.commands.OverrideWinch;
 import org.usfirst.frc4904.robot.commands.SetWinch;
 import org.usfirst.frc4904.robot.commands.grabber.GrabberStop;
 import org.usfirst.frc4904.robot.commands.grabber.GrabberToggle;
+import org.usfirst.frc4904.standard.commands.motor.MotorInPipe;
+import org.usfirst.frc4904.standard.custom.controllers.Controller;
+import org.usfirst.frc4904.standard.humaninterface.Operator;
 
 public class Nachi extends Operator {
 	private final LogKitten kitten;

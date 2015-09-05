@@ -1,9 +1,9 @@
 package org.usfirst.frc4904.robot.commands.grabber;
 
 
-import org.usfirst.frc4904.cmdbased.custom.sensors.PDP;
 import org.usfirst.frc4904.robot.RobotMap;
 import org.usfirst.frc4904.robot.subsystems.Grabber;
+import org.usfirst.frc4904.standard.custom.sensors.PDP;
 
 public class GrabberOpen extends GrabberCommand {
 	public GrabberOpen(Grabber grabber, PDP pdp) {

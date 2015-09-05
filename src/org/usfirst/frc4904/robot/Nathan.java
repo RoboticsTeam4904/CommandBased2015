@@ -1,9 +1,9 @@
 package org.usfirst.frc4904.robot;
 
 
-import org.usfirst.frc4904.cmdbased.commands.Kill;
-import org.usfirst.frc4904.cmdbased.commands.chassis.ChassisIdle;
-import org.usfirst.frc4904.cmdbased.humaninterface.Driver;
+import org.usfirst.frc4904.standard.commands.Kill;
+import org.usfirst.frc4904.standard.commands.chassis.ChassisIdle;
+import org.usfirst.frc4904.standard.humaninterface.Driver;
 
 public class Nathan extends Driver {
 	public Nathan() {
