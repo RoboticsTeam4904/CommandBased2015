@@ -16,6 +16,7 @@ public class SetWinch extends CommandGroup {
 		this.height = height;
 		addSequential(new SetWinchPID(winch, true));
 		requires(winch);
+		requires(winch.getMotor());
 		setInterruptible(true);
 		kitten = new LogKitten(LogKitten.LEVEL_DEBUG, LogKitten.LEVEL_DEBUG);
 		kitten.v("created set winch");

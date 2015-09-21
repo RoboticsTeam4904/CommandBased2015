@@ -2,7 +2,6 @@ package org.usfirst.frc4904.robot.subsystems;
 
 
 import org.usfirst.frc4904.robot.RobotMap;
-import org.usfirst.frc4904.standard.commands.motor.MotorIdle;
 import org.usfirst.frc4904.standard.subsystems.motor.EncodedMotor;
 import org.usfirst.frc4904.standard.subsystems.motor.Motor;
 import edu.wpi.first.wpilibj.Encoder;
@@ -13,10 +12,6 @@ public class Winch extends EncodedMotor {
 		super("Winch", RobotMap.WINCH_P, RobotMap.WINCH_I, RobotMap.WINCH_D, motor, encoder);
 		LiveWindow.addActuator("Winch", "PIDSubsystem Controller", getPIDController());
 		setInputRange(RobotMap.WINCH_MIN_HEIGHT * RobotMap.TICK_PER_HALFTOTE, RobotMap.WINCH_MAX_HEIGHT * RobotMap.TICK_PER_HALFTOTE);
-	}
-	
-	protected void initDefaultCommand() {
-		setDefaultCommand(new MotorIdle(this));
 		setAbsoluteTolerance(RobotMap.WINCH_ERROR_MARGIN);
 	}
 	
