@@ -5,39 +5,39 @@ import org.usfirst.frc4904.logkitten.LogKitten;
 import org.usfirst.frc4904.robot.subsystems.Winch;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
-public class SetWinch extends CommandGroup {
+public class DeltaWinch extends CommandGroup {
 	private final Winch winch;
-	private final double height;
+	private final double encoderDistance;
 	private final LogKitten kitten;
 	
-	public SetWinch(Winch winch, double height) {
-		super("SetWinch");
+	public DeltaWinch(Winch winch, double encoderDistance) {
+		super("DeltaWinch");
 		this.winch = winch;
-		this.height = height;
+		this.encoderDistance = encoderDistance;
 		addSequential(new SetWinchPID(winch, true));
 		requires(winch);
 		requires(winch.getMotor());
 		setInterruptible(true);
 		kitten = new LogKitten(LogKitten.LEVEL_DEBUG, LogKitten.LEVEL_DEBUG);
-		kitten.v("created set winch");
+		kitten.v("created delta winch");
 	}
 	
 	protected void initialize() {
-		winch.setHeight(height);
-		kitten.v("Initialized set winch with height " + Double.toString(height));
+		winch.setHeight(winch.getPosition() + encoderDistance);
+		kitten.v("Initialized delta winch with delta " + Double.toString(encoderDistance));
 	}
 	
 	protected void execute() {}
 	
 	protected void interrupted() {
-		kitten.w("set winch was interrupted");
+		kitten.w("delta winch was interrupted");
 	}
 	
 	protected void end() {}
 	
 	protected boolean isFinished() {
 		if (winch.onTarget()) {
-			kitten.d("set winch is finished", true);
+			kitten.d("delta winch is finished", true);
 		}
 		return winch.onTarget();
 	}
