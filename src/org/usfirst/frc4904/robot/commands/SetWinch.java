@@ -18,7 +18,7 @@ public class SetWinch extends CommandGroup {
 		requires(winch);
 		requires(winch.getMotor());
 		setInterruptible(true);
-		kitten = new LogKitten(LogKitten.LEVEL_DEBUG, LogKitten.LEVEL_DEBUG);
+		kitten = new LogKitten(LogKitten.LEVEL_WARN, LogKitten.LEVEL_WARN);
 		kitten.v("created set winch");
 	}
 	

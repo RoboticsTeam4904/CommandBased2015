@@ -18,7 +18,7 @@ public abstract class GrabberCommand extends Command {
 		super(name);
 		requires(grabber);
 		setInterruptible(true);
-		logger = new LogKitten(LogKitten.LEVEL_DEBUG, LogKitten.LEVEL_DEBUG);
+		logger = new LogKitten(LogKitten.LEVEL_WARN, LogKitten.LEVEL_WARN);
 		this.grabber = grabber;
 		this.pdp = pdp;
 		this.limitSwitches = grabber.getSwitches();
@@ -27,7 +27,7 @@ public abstract class GrabberCommand extends Command {
 	protected void execute() {
 		if (pdp.getCurrent(RobotMap.GRABBER_PDP_PORT) > RobotMap.GRABBER_EMERGENCY_AMPS) {
 			grabber.set(RobotMap.GRABBER_IDLE_SPEED);
-			logger.v("Idling now", true);
+			logger.v("Idling now");
 		}
 	}
 }

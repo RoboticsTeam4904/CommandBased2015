@@ -15,12 +15,12 @@ public class GrabberStop extends Command {
 		requires(grabber);
 		setInterruptible(false); // Command exits immediately
 		this.grabber = grabber;
-		logger = new LogKitten(LogKitten.LEVEL_DEBUG, LogKitten.LEVEL_DEBUG);
-		logger.v("GrabberStop initialized", true);
+		logger = new LogKitten(LogKitten.LEVEL_WARN, LogKitten.LEVEL_WARN);
+		logger.v("GrabberStop initialized");
 	}
 	
 	protected void initialize() {
-		logger.v("Grabber stopping", true);
+		logger.v("Grabber stopping");
 		grabber.set(RobotMap.GRABBER_IDLE_SPEED);
 	}
 	

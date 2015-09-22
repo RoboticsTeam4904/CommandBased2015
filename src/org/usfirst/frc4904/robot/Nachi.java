@@ -7,7 +7,6 @@ import org.usfirst.frc4904.robot.commands.OverrideWinch;
 import org.usfirst.frc4904.robot.commands.SetWinch;
 import org.usfirst.frc4904.robot.commands.grabber.GrabberStop;
 import org.usfirst.frc4904.robot.commands.grabber.GrabberToggle;
-import org.usfirst.frc4904.robot.subsystems.Winch;
 import org.usfirst.frc4904.standard.commands.motor.ControlMotor;
 import org.usfirst.frc4904.standard.custom.controllers.Controller;
 import org.usfirst.frc4904.standard.humaninterface.Operator;
@@ -17,7 +16,7 @@ public class Nachi extends Operator {
 	
 	public Nachi() {
 		super("Nachi"); // Supernachi!
-		kitten = new LogKitten(LogKitten.LEVEL_DEBUG, LogKitten.LEVEL_DEBUG);
+		kitten = new LogKitten(LogKitten.LEVEL_WARN, LogKitten.LEVEL_WARN);
 		LogKitten.setPrintMute(true);
 	}
 	

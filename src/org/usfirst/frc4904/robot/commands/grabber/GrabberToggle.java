@@ -15,7 +15,7 @@ public class GrabberToggle extends Command {
 	
 	public GrabberToggle(Grabber grabber, PDP pdp) {
 		super("GrabberToggle");
-		logger = new LogKitten(LogKitten.LEVEL_DEBUG, LogKitten.LEVEL_DEBUG);
+		logger = new LogKitten(LogKitten.LEVEL_WARN, LogKitten.LEVEL_WARN);
 		this.grabber = grabber;
 		this.pdp = pdp;
 		currentGrabberCommand = null;
@@ -23,11 +23,11 @@ public class GrabberToggle extends Command {
 	
 	protected void initialize() {
 		if (open) {
-			logger.v("Closing grabber", true);
+			logger.v("Closing grabber");
 			currentGrabberCommand = new GrabberClose(grabber, pdp);
 			open = false;
 		} else {
-			logger.v("Opening grabber", true);
+			logger.v("Opening grabber");
 			currentGrabberCommand = new GrabberOpen(grabber, pdp);
 			open = true;
 		}

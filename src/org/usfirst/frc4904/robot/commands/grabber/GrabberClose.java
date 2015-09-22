@@ -24,7 +24,7 @@ public class GrabberClose extends GrabberCommand {
 	
 	protected boolean isFinished() {
 		if (pdp.getCurrent(RobotMap.GRABBER_PDP_PORT) > RobotMap.GRABBER_MAX_AMPS) {
-			logger.v("Grabber Closed", true);
+			logger.v("Grabber Closed");
 		}
 		return pdp.getCurrent(RobotMap.GRABBER_PDP_PORT) > RobotMap.GRABBER_MAX_AMPS;
 	}
