@@ -115,8 +115,8 @@ public class RobotMap {
 		WINCH_ENCODER.reset();
 		frontLeftWheel = new Motor("frontLeftWheel", RobotMap.FRONT_LEFT_WHEEL_MOTOR);
 		frontRightWheel = new Motor("frontRightWheel", RobotMap.FRONT_RIGHT_WHEEL_MOTOR);
-		backLeftWheel = new Motor("backLeftWheel", RobotMap.BACK_LEFT_WHEEL_MOTOR);
-		backRightWheel = new Motor("backRightWheel", RobotMap.BACK_RIGHT_WHEEL_MOTOR);
+		backLeftWheel = new Motor("backLeftWheel", RobotMap.BACK_LEFT_WHEEL_MOTOR, true);
+		backRightWheel = new Motor("backRightWheel", RobotMap.BACK_RIGHT_WHEEL_MOTOR, true);
 		chassis = new Chassis2015(frontLeftWheel, frontRightWheel, backLeftWheel, backRightWheel);
 		winch = new Winch(new Motor("WinchMotor", RobotMap.WINCH_MOTOR), RobotMap.WINCH_ENCODER);
 		limitSwitches = new LimitSwitchSystem(RobotMap.RIGHT_INNER_SWITCH, RobotMap.LEFT_INNER_SWITCH, RobotMap.RIGHT_OUTER_SWITCH, RobotMap.LEFT_OUTER_SWITCH);
