@@ -24,7 +24,7 @@ public class Nachi extends Operator {
 		kitten.d("Binding nachi");
 		// Set Joystick to output y axis via pipe (for manual adjustments)
 		DriverStationMap.stick.button11.toggleWhenPressed(new OverrideWinch(RobotMap.winch, DriverStationMap.stick, Controller.Y_AXIS));
-		DriverStationMap.stick.button10.toggleWhenPressed(new ControlMotor(RobotMap.grabber, DriverStationMap.stick, Controller.X_AXIS));
+		DriverStationMap.stick.button10.toggleWhenPressed(new ControlMotor(RobotMap.grabber, DriverStationMap.stick, Controller.X_AXIS, false));
 		// Winch PID commands
 		DriverStationMap.stick.button3.whenPressed(new DeltaWinch(RobotMap.winch, RobotMap.winch.getPosition() - RobotMap.TICK_PER_HALFTOTE));
 		DriverStationMap.stick.button4.whenPressed(new SetWinch(RobotMap.winch, RobotMap.WINCH_MIN_HEIGHT * RobotMap.TICK_PER_HALFTOTE));

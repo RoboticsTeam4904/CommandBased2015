@@ -9,6 +9,6 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class OverrideWinch extends CommandGroup {
 	public OverrideWinch(Winch winch, Controller stick, int axis) {
 		addSequential(new SetWinchPID(winch, false));
-		addSequential(new ControlMotor(winch.getMotor(), stick, axis));
+		addSequential(new ControlMotor(winch.getMotor(), stick, axis, true));
 	}
 }
