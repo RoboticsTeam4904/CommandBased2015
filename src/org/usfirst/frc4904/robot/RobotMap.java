@@ -100,7 +100,7 @@ public class RobotMap {
 		FRONT_RIGHT_WHEEL_MOTOR = new VictorSP(1);
 		BACK_LEFT_WHEEL_MOTOR = new VictorSP(2);
 		BACK_RIGHT_WHEEL_MOTOR = new VictorSP(3);
-		WINCH_MOTOR = new Talon(4);
+		WINCH_MOTOR = new Talon(7);
 		GRABBER_MOTOR = new Talon(5);
 		RIGHT_INNER_SWITCH = new CustomLimitSwitch(6);
 		LEFT_INNER_SWITCH = new CustomLimitSwitch(7);
