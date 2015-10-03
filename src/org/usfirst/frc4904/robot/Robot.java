@@ -49,10 +49,10 @@ public class Robot extends CommandRobotBase {
 	
 	public void autonomousInit() {
 		// Get chosen autonomous command
-		autonomousCommand = autoChooser.getSelected();
+		// autonomousCommand = autoChooser.getSelected();
 		// Schedule the autonomous command
-		teleopCommand.cancel();
-		autonomousCommand.start();
+		// teleopCommand.cancel();
+		// autonomousCommand.start();
 	}
 	
 	/**
