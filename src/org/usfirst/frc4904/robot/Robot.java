@@ -35,7 +35,7 @@ public class Robot extends CommandRobotBase {
 		super.robotInit();
 		System.out.println("CommandRobotBase init complete");
 		// Configure autonomous command chooser
-		autoChooser.addDefault(new DriveForwardAuton(map.chassis, 1, 0.5));
+		autoChooser.addDefault(new DriveForwardAuton(map.chassis, 3, 0.5));
 		// autoChooser.addObject(new ChassisIdle(map.chassis));
 		autoChooser.addObject(new PrintCommand("NULLAUTON"));
 		// Configure driver command chooser

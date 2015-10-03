@@ -2,10 +2,7 @@ package org.usfirst.frc4904.robot;
 
 
 import org.usfirst.frc4904.logkitten.LogKitten;
-import org.usfirst.frc4904.robot.commands.DeltaWinch;
 import org.usfirst.frc4904.robot.commands.OverrideWinch;
-import org.usfirst.frc4904.robot.commands.SetWinch;
-import org.usfirst.frc4904.robot.commands.grabber.GrabberToggle;
 import org.usfirst.frc4904.standard.commands.motor.ControlMotor;
 import org.usfirst.frc4904.standard.custom.controllers.Controller;
 import org.usfirst.frc4904.standard.humaninterface.Operator;
@@ -27,12 +24,12 @@ public class Nachi extends Operator {
 		(new OverrideWinch(RobotMap.winch, DriverStationMap.stick, Controller.Y_AXIS)).start();
 		(new ControlMotor(RobotMap.grabber, DriverStationMap.stick, Controller.X_AXIS, false)).start();
 		// Winch PID commands
-		DriverStationMap.stick.button3.whenPressed(new DeltaWinch(RobotMap.winch, RobotMap.winch.getPosition() - RobotMap.TICK_PER_HALFTOTE));
-		DriverStationMap.stick.button4.whenPressed(new SetWinch(RobotMap.winch, RobotMap.WINCH_MIN_HEIGHT * RobotMap.TICK_PER_HALFTOTE));
-		DriverStationMap.stick.button5.whenPressed(new DeltaWinch(RobotMap.winch, RobotMap.winch.getPosition() + RobotMap.TICK_PER_HALFTOTE));
-		DriverStationMap.stick.button6.whenPressed(new SetWinch(RobotMap.winch, RobotMap.WINCH_MAX_HEIGHT * RobotMap.TICK_PER_HALFTOTE));
+		// DriverStationMap.stick.button3.whenPressed(new DeltaWinch(RobotMap.winch, RobotMap.winch.getPosition() - RobotMap.TICK_PER_HALFTOTE));
+		// DriverStationMap.stick.button4.whenPressed(new SetWinch(RobotMap.winch, RobotMap.WINCH_MIN_HEIGHT * RobotMap.TICK_PER_HALFTOTE));
+		// DriverStationMap.stick.button5.whenPressed(new DeltaWinch(RobotMap.winch, RobotMap.winch.getPosition() + RobotMap.TICK_PER_HALFTOTE));
+		// DriverStationMap.stick.button6.whenPressed(new SetWinch(RobotMap.winch, RobotMap.WINCH_MAX_HEIGHT * RobotMap.TICK_PER_HALFTOTE));
 		// Grabber commands
-		DriverStationMap.stick.button1.whenPressed(new GrabberToggle(RobotMap.grabber, RobotMap.pdp));
+		// DriverStationMap.stick.button1.whenPressed(new GrabberToggle(RobotMap.grabber, RobotMap.pdp));
 		// RobotMap.grabber.getSwitches().whenPressed(new GrabberStop(RobotMap.grabber));
 	}
 }
