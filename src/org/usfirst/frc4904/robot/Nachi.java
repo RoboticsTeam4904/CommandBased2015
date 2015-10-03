@@ -5,7 +5,6 @@ import org.usfirst.frc4904.logkitten.LogKitten;
 import org.usfirst.frc4904.robot.commands.DeltaWinch;
 import org.usfirst.frc4904.robot.commands.OverrideWinch;
 import org.usfirst.frc4904.robot.commands.SetWinch;
-import org.usfirst.frc4904.robot.commands.grabber.GrabberStop;
 import org.usfirst.frc4904.robot.commands.grabber.GrabberToggle;
 import org.usfirst.frc4904.standard.commands.motor.ControlMotor;
 import org.usfirst.frc4904.standard.custom.controllers.Controller;
@@ -32,6 +31,6 @@ public class Nachi extends Operator {
 		DriverStationMap.stick.button6.whenPressed(new SetWinch(RobotMap.winch, RobotMap.WINCH_MAX_HEIGHT * RobotMap.TICK_PER_HALFTOTE));
 		// Grabber commands
 		DriverStationMap.stick.button1.whenPressed(new GrabberToggle(RobotMap.grabber, RobotMap.pdp));
-		RobotMap.grabber.getSwitches().whenPressed(new GrabberStop(RobotMap.grabber));
+		// RobotMap.grabber.getSwitches().whenPressed(new GrabberStop(RobotMap.grabber));
 	}
 }
