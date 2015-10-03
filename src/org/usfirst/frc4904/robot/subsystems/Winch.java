@@ -20,6 +20,6 @@ public class Winch extends EncodedMotor {
 	}
 	
 	public void setHeight(double height) {
-		setSetpoint(height);
+		// setSetpoint(height);
 	}
 }
