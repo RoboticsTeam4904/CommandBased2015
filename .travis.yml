@@ -1,8 +1,20 @@
 language: java
 jdk:
 - openjdk8
+
+# Handle git submodules yourself
+git:
+- submodules: false
+
+# Use sed to replace the SSH URL with the public URL, then initialize submodules
+before_install:
+- sed -i 's/git@github.com:/https:\/\/github.com\//' .gitmodules
+- git submodule update --init --recursive
+
 install:
 - git clone https://github.com/chopshop-166/wpilib-mirror.git ~/wpilib
+
 notifications:
   email: none
+
 script: cd 2015-Code && ant jar
