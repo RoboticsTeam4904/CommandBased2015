@@ -17,4 +17,4 @@ install:
 notifications:
   email: none
 
-script: cd 2015-Code && ant jar
+script: ant jar
