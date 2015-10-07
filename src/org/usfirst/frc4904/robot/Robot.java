@@ -73,7 +73,7 @@ public class Robot extends CommandRobotBase {
 		if (autonomousCommand != null) {
 			autonomousCommand.cancel();
 		}
-		teleopCommand = new ChassisMove(RobotMap.chassis, DriverStationMap.xbox, DriverStationMap.X_SPEED_SCALE, DriverStationMap.Y_SPEED_SCALE, DriverStationMap.TURN_SPEED_SCALE);
+		teleopCommand = new ChassisMove(RobotMap.chassis, driverChooser.getSelected(), DriverStationMap.X_SPEED_SCALE, DriverStationMap.Y_SPEED_SCALE, DriverStationMap.TURN_SPEED_SCALE);
 		teleopCommand.start();
 		RobotMap.winch.enable();
 		// Bind commands
