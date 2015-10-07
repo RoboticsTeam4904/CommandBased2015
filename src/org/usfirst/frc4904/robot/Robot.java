@@ -7,9 +7,10 @@
 package org.usfirst.frc4904.robot;
 
 
+import org.usfirst.frc4904.robot.commands.DriveForwardAuton;
 import org.usfirst.frc4904.standard.CommandRobotBase;
-import org.usfirst.frc4904.standard.commands.chassis.ChassisIdle;
 import org.usfirst.frc4904.standard.commands.chassis.ChassisMove;
+import edu.wpi.first.wpilibj.command.PrintCommand;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -34,7 +35,9 @@ public class Robot extends CommandRobotBase {
 		super.robotInit();
 		System.out.println("CommandRobotBase init complete");
 		// Configure autonomous command chooser
-		autoChooser.addDefault(new ChassisIdle(map.chassis));
+		autoChooser.addDefault(new DriveForwardAuton(map.chassis, 3, 0.5));
+		// autoChooser.addObject(new ChassisIdle(map.chassis));
+		autoChooser.addObject(new PrintCommand("NULLAUTON"));
 		// Configure driver command chooser
 		driverChooser.addDefault(new Nathan());
 		// Configure operator command chooser
@@ -49,7 +52,9 @@ public class Robot extends CommandRobotBase {
 		// Get chosen autonomous command
 		autonomousCommand = autoChooser.getSelected();
 		// Schedule the autonomous command
-		teleopCommand.cancel();
+		if (teleopCommand != null) {
+			teleopCommand.cancel();
+		}
 		autonomousCommand.start();
 	}
 	
