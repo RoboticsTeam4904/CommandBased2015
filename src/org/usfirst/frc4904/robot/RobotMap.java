@@ -6,7 +6,6 @@ import org.usfirst.frc4904.robot.subsystems.Grabber;
 import org.usfirst.frc4904.robot.subsystems.LimitSwitchSystem;
 import org.usfirst.frc4904.robot.subsystems.Winch;
 import org.usfirst.frc4904.standard.custom.sensors.CustomLimitSwitch;
-import org.usfirst.frc4904.standard.custom.sensors.IMU;
 import org.usfirst.frc4904.standard.custom.sensors.LIDAR;
 import org.usfirst.frc4904.standard.custom.sensors.PDP;
 import org.usfirst.frc4904.standard.subsystems.motor.Motor;
@@ -73,7 +72,7 @@ public class RobotMap {
 	public static Encoder BACK_RIGHT_WHEEL_ENCODER;
 	public static Encoder WINCH_ENCODER;
 	// IMU
-	public static IMU IMU_SENSOR;
+	// public static IMU IMU_SENSOR;
 	// *** SUBSYSTEMS *** //
 	// Initialize wheels and chassis
 	// public static final EncodedMotor frontLeftWheel = new EncodedMotor("frontLeftWheel", 1.0, 0.3, 0.3, RobotMap.FRONT_LEFT_WHEEL_MOTOR, RobotMap.FRONT_LEFT_WHEEL_ENCODER);
@@ -111,7 +110,7 @@ public class RobotMap {
 		BACK_LEFT_WHEEL_ENCODER = new Encoder(3, 12);
 		BACK_RIGHT_WHEEL_ENCODER = new Encoder(4, 13);
 		WINCH_ENCODER = new Encoder(0, 5);
-		IMU_SENSOR = new IMU();
+		// IMU_SENSOR = new IMU();
 		WINCH_ENCODER.reset();
 		frontLeftWheel = new Motor("frontLeftWheel", RobotMap.FRONT_LEFT_WHEEL_MOTOR);
 		frontRightWheel = new Motor("frontRightWheel", RobotMap.FRONT_RIGHT_WHEEL_MOTOR);
