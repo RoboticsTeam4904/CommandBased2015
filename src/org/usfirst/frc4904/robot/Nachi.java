@@ -8,16 +8,13 @@ import org.usfirst.frc4904.standard.custom.controllers.Controller;
 import org.usfirst.frc4904.standard.humaninterface.Operator;
 
 public class Nachi extends Operator {
-	private final LogKitten kitten;
-	
 	public Nachi() {
 		super("Nachi"); // Supernachi!
-		kitten = new LogKitten(LogKitten.LEVEL_WARN, LogKitten.LEVEL_WARN);
 		LogKitten.setPrintMute(true);
 	}
 	
 	public void bindCommands() {
-		kitten.d("Binding nachi");
+		LogKitten.d("Binding nachi");
 		// Set Joystick to output y axis via pipe (for manual adjustments)
 		// DriverStationMap.stick.button9.toggleWhenPressed(new OverrideWinch(RobotMap.winch, DriverStationMap.stick, Controller.Y_AXIS));
 		// DriverStationMap.stick.button10.toggleWhenPressed(new ControlMotor(RobotMap.grabber, DriverStationMap.stick, Controller.X_AXIS, false));

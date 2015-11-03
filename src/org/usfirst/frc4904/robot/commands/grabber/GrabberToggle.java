@@ -8,14 +8,12 @@ import edu.wpi.first.wpilibj.command.Command;
 
 public class GrabberToggle extends Command {
 	public static boolean open = true;
-	private final LogKitten logger;
 	private final Grabber grabber;
 	private final PDP pdp;
 	private Command currentGrabberCommand;
 	
 	public GrabberToggle(Grabber grabber, PDP pdp) {
 		super("GrabberToggle");
-		logger = new LogKitten(LogKitten.LEVEL_WARN, LogKitten.LEVEL_WARN);
 		this.grabber = grabber;
 		this.pdp = pdp;
 		currentGrabberCommand = null;
@@ -23,11 +21,11 @@ public class GrabberToggle extends Command {
 	
 	protected void initialize() {
 		if (open) {
-			logger.v("Closing grabber");
+			LogKitten.v("Closing grabber");
 			currentGrabberCommand = new GrabberClose(grabber, pdp);
 			open = false;
 		} else {
-			logger.v("Opening grabber");
+			LogKitten.v("Opening grabber");
 			currentGrabberCommand = new GrabberOpen(grabber, pdp);
 			open = true;
 		}

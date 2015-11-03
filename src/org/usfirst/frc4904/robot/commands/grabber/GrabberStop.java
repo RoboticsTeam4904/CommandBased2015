@@ -7,7 +7,6 @@ import org.usfirst.frc4904.robot.subsystems.Grabber;
 import edu.wpi.first.wpilibj.command.Command;
 
 public class GrabberStop extends Command {
-	private final LogKitten logger;
 	private final Grabber grabber;
 	
 	public GrabberStop(Grabber grabber) {
@@ -15,12 +14,11 @@ public class GrabberStop extends Command {
 		requires(grabber);
 		setInterruptible(false); // Command exits immediately
 		this.grabber = grabber;
-		logger = new LogKitten(LogKitten.LEVEL_WARN, LogKitten.LEVEL_WARN);
-		logger.v("GrabberStop initialized");
+		LogKitten.v("GrabberStop initialized");
 	}
 	
 	protected void initialize() {
-		logger.v("Grabber stopping");
+		LogKitten.v("Grabber stopping");
 		grabber.set(RobotMap.GRABBER_IDLE_SPEED);
 	}
 	

@@ -1,6 +1,7 @@
 package org.usfirst.frc4904.robot.commands.grabber;
 
 
+import org.usfirst.frc4904.logkitten.LogKitten;
 import org.usfirst.frc4904.robot.RobotMap;
 import org.usfirst.frc4904.robot.subsystems.Grabber;
 import org.usfirst.frc4904.standard.custom.sensors.PDP;
@@ -24,7 +25,7 @@ public class GrabberOpen extends GrabberCommand {
 	
 	protected boolean isFinished() {
 		if (pdp.getCurrent(RobotMap.GRABBER_PDP_PORT) > RobotMap.GRABBER_MAX_AMPS) {
-			logger.v("Grabber Open");
+			LogKitten.v("Grabber Open");
 		}
 		return pdp.getCurrent(RobotMap.GRABBER_PDP_PORT) > RobotMap.GRABBER_MAX_AMPS;
 	}
